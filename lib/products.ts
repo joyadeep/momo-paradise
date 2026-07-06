@@ -35,7 +35,7 @@ export async function getAllProducts() {
     })
 }
 
-export async function getNewProducts() {
+export async function getNewProducts(): Promise<any> {
     return shopifyFetch({
         query: `{
         products(first:10,query:"tag:new") {
