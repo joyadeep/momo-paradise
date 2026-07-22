@@ -58,7 +58,9 @@ export default function RootLayout({
           SOFT LANDING, OUR LATEST SUMMER CHAPTER NOW LIVE
         </p>
         <Header/>
-        {children}
+        <main className="grow">
+          {children}
+        </main>
         <Footer/>
         </body>
     </html>
