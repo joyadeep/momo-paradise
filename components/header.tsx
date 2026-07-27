@@ -49,7 +49,7 @@ const Header = () => {
                 <Button variant="ghost" className="text-green-800 hover:text-green-700"> <Menu className="size-5"/> menu </Button>
             </SheetTrigger>
             <SheetContent side="left" className="pt-24 bg-orange-50 text-red-950" >
-                 <Image src="/images/logo.png" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain mx-auto" />
+                 <Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain mx-auto" />
                  <p className="text-center font-cormorant-garamond">soft things, slow days <br /> made with love ♡</p>
                  <div className="border border-t border-red-950 w-3/4 mx-auto mt-7 mb-3"/>
                  <div className="flex flex-col uppercase  gap-5 text-2xl font-cormorant-garamond font-medium">
@@ -73,7 +73,7 @@ const Header = () => {
                                  </div>
             </SheetContent>
         </Sheet>
-        <Link href="/"><Image src="/images/logo.png" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain" /></Link>
+        <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain" /></Link>
         <div className="flex gap-14 text-xs text-green-800">
             <div>SEARCH (0)</div>
             <Link href="/cart">CART (0)</Link>

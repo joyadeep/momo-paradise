@@ -1,14 +1,15 @@
 import React from 'react'
 import ImageSelector from './imageSelector'
 import ProductDetails from './productDetails'
+import { getProductByHandle } from '@/lib/graphql/queries/productDetailQuery'
 
-const images = ['/images/hero2.png','/images/model.png','/images/lookbook.png', '/images/featured_collection.png','/images/hero2.png','/images/model.png','/images/lookbook.png', '/images/featured_collection.png']
-
-const page = () => {
+const page = async({params}:{params:Promise<{id:string}>}) => {
+  const {id} = await params;
+  const productDetail = await getProductByHandle(id);
   return (
     <div className='px-20 flex gap-5 pb-10'>
-        <ImageSelector images={images}/>
-        <ProductDetails/>
+        <ImageSelector images={productDetail?.images ?? []}/>
+        <ProductDetails data={productDetail}/>
     </div>
   )
 }

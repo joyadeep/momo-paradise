@@ -1,19 +1,21 @@
 import Image from 'next/image'
-import React from 'react'
 import Sizes from './sizes'
 import { Button } from '@/components/ui/button'
 import { Shirt, Sprout } from 'lucide-react'
 import Questions from './questions'
+import { ProductDetail } from '@/lib/graphql/types/productDetailType'
 
-// type Props = {}
+type Props = {
+  data: ProductDetail | null
+}
 
-const ProductDetails = () => {
+const ProductDetails = ({data}: Props) => {
   return (
-    <section className='w-2/5 font-cormorant-garamond '>
-        <h1 className=' uppercase text-3xl'>seafarer dress - sunday stripe</h1>
-        <h4 className='text-lg'>$199.00 USD</h4>
+    <section className='w-2/5 font-lora '>
+        <h1 className=' uppercase text-3xl'>{data?.title}</h1>
+        <h4 className='text-lg'>{data?.price?.amount} {data?.price?.currencyCode}</h4>
         <div className='flex gap-3 items-center'>
-            <Image src="/images/logo.png" alt="logo" width={48} height={48} className='size-14 rounded-full overflow-hidden object-contain' />
+            <Image src="/images/logo.webp" alt="logo" width={48} height={48} className='size-14 rounded-full overflow-hidden object-contain' />
             <p className='uppercase font-medium'>sunday stripe</p>
         </div>
          <Sizes/>
