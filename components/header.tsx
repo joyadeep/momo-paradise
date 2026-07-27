@@ -1,6 +1,6 @@
 import { Menu } from "lucide-react"
 import { Button } from "./ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet"
 import Image from "next/image"
 import Link from "next/link"
 import InstagramIcon from "./icons/instagramIcon"
@@ -26,7 +26,7 @@ const links = [
     },
     {
         name:"about momo",
-        link:"/",
+        link:"/about",
         icon:"🌸"
     },
     {
@@ -54,13 +54,15 @@ const Header = () => {
                  <div className="border border-t border-red-950 w-3/4 mx-auto mt-7 mb-3"/>
                  <div className="flex flex-col uppercase  gap-5 text-2xl font-cormorant-garamond font-medium">
                     {links.map((link)=>(
-                        <Link href={link.link} key={link.name}>
+                        <SheetClose asChild key={link.name}>
+                            <Link href={link.link} >
                             <div className="px-20 flex justify-between">
                                 <span>{link.name}</span>
                                 <span>{link.icon}</span>
                             </div>
                             
                         </Link>
+                        </SheetClose>
                     ))}
                  </div>
                  <div className="flex gap-5 mt-auto mb-10 justify-center">
@@ -71,10 +73,10 @@ const Header = () => {
                                  </div>
             </SheetContent>
         </Sheet>
-        <Image src="/images/logo.png" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain" />
+        <Link href="/"><Image src="/images/logo.png" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain" /></Link>
         <div className="flex gap-14 text-xs text-green-800">
             <div>SEARCH (0)</div>
-            <div>CART (0)</div>
+            <Link href="/cart">CART (0)</Link>
         </div>
     </header>
   )
