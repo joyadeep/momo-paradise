@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useState } from "react"
 
 interface IProps {
-    images : string[]
+    images : {url:string,altText:string|null}[]
 }
 const ImageSelector = ({images}:IProps) => {
     const [active,setActive] = useState(0)
@@ -15,12 +15,12 @@ const ImageSelector = ({images}:IProps) => {
             <div className="w-1/4 h-150 overflow-auto flex flex-col gap-5 ">
         {images.map((image,i) => (
             <div key={i} className={cn("border border-transparent cursor-pointer",active === i ? " border-gray-400" : "")} onClick={() => setActive(i)}>
-                <Image src={image} alt={image} width={100} height={100} className="w-full h-auto max-h-40 object-contain" />
+                <Image src={image.url} alt={image?.altText ?? image.url} width={100} height={100} className="w-48 h-auto  object-contain" />
             </div>
         ))}
         </div>
-        <div className="flex-1 border border-gray-400 h-150">
-            <Image src={images[active]} alt={images[active]} width={100} height={100} className="w-full h-full object-contain" />
+        <div className="flex-1 border border-gray-400 h-150 aspect-3/4">
+            <Image src={images[active].url} alt={images[active]?.altText ?? images[active].url} width={100} height={100} className="w-full h-full object-contain" />
         </div>
         </div>
     </div>

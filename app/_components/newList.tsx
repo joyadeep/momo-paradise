@@ -1,14 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { getNewProducts } from '@/lib/products'
-import { ChevronLeft, ChevronRight, MoveRight } from 'lucide-react';
+import { MoveRight } from 'lucide-react';
 import Image from 'next/image';
-import React from 'react'
+import Link from 'next/link';
+import { getNewProducts } from '@/lib/graphql/queries/productByCollectionQuery';
 
 
 const NewList = async() => {
-    const products =  await getNewProducts();
+  const products =  await getNewProducts();
   return (
     <div className='py-5'>
         <div className='flex justify-between items-center text-green-800'>
@@ -24,18 +24,27 @@ const NewList = async() => {
     >
       <CarouselPrevious/>
       <CarouselContent>
-         {products?.body?.data?.products?.edges?.map((product:any,index:number)=>(
-            <CarouselItem key={index} className="basis-1/2 lg:basis-1/5">
-            <div className="p-0">
-            <Card key={index} className='border-none '>
-                <CardContent className=' p-0 m-0 border-none shadow-none'>
-                    <Image src={product?.node?.media?.edges[0]?.node?.image?.url} alt="model" width={300} height={500}  className='object-cover'/>
-                    <h3 className='text-green-800'>{product?.node?.title}</h3>
-                    <h5 className='text-green-800'>{product?.node?.variants?.edges[0]?.node?.price?.currencyCode} {product?.node?.variants?.edges[0]?.node?.price?.amount}</h5>
-                </CardContent>
-            </Card>
-            </div>
-        </CarouselItem>
+         {products?.map((product:any)=>(
+           <CarouselItem className="basis-1/2 lg:basis-1/5 min-w-0 cursor-pointer"  key={product?.title}>
+              <div className="p-0">
+            <Link href={`/product/${product?.handle}`}>
+              <Card className=' bg-transparent border-none shadow-none p-0'>
+                  <CardContent className=' p-0 m-0 border-none shadow-none'>
+                      <div className="relative aspect-3/4 w-full overflow-hidden">
+                        <Image
+                          src={product.images[0].url}
+                          alt={product.images[0].altText ?? product.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <h3 className='text-green-800 mt-2'>{product?.title}</h3>
+                      <h5 className='text-green-800'>{product?.price?.currencyCode} {product?.price?.amount}</h5>
+                  </CardContent>
+              </Card>
+            </Link>
+              </div>
+            </CarouselItem>
         ))}
       </CarouselContent>
       <CarouselNext/>

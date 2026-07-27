@@ -33,7 +33,7 @@ const CartList = () => {
                                 <p>Seaferer Dress - Sunday Stripe</p>
                                 <p>Size : S</p>
                                 <div className='flex items-center gap-2'>
-                                    <Image src="/images/logo.png" alt="logo" width={48} height={48} className="size-7 rounded-full overflow-hidden object-contain bg-red-400" />
+                                    <Image src="/images/logo.webp" alt="logo" width={48} height={48} className="size-7 rounded-full overflow-hidden object-contain bg-red-400" />
                                     <p>Cream</p>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ const CartList = () => {
                                 <p>Seaferer Dress - Sunday Stripe</p>
                                 <p>Size : S</p>
                                 <div className='flex items-center gap-2'>
-                                    <Image src="/images/logo.png" alt="logo" width={48} height={48} className="size-7 rounded-full overflow-hidden object-contain bg-red-400" />
+                                    <Image src="/images/logo.webp" alt="logo" width={48} height={48} className="size-7 rounded-full overflow-hidden object-contain bg-red-400" />
                                     <p>Cream</p>
                                 </div>
                             </div>
