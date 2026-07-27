@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Dancing_Script, Geist, Geist_Mono, Inter, Lora, Roboto_Mono } from "next/font/google";
+import { Cormorant_Garamond, Dancing_Script, Geist, Geist_Mono, Inter, Lora, Roboto_Mono, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/header";
@@ -37,10 +37,17 @@ const robotoMono = Roboto_Mono({
   subsets: ["latin"],
 })
 
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  weight:["100","200","300","400","500","600","700"]
+})
+
 export const metadata: Metadata = {
   title: "Momo Paradice",
   description: "",
 };
+
 
 
 export default function RootLayout({
@@ -51,7 +58,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable, cormorantGaramond.variable, lora.variable, dancingScript.variable,robotoMono.variable)}
+      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable, cormorantGaramond.variable, lora.variable, dancingScript.variable,robotoMono.variable,ibmPlexMono.variable)}
     >
       <body className="min-h-full flex flex-col">
         <p className="text-center py-2 text-xs bg-[#f4cecd] text-green-800 tracking-wide font-medium">
