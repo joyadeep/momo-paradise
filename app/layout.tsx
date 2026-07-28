@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import {Toaster} from "@/components/ui/sonner";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -65,10 +66,11 @@ export default function RootLayout({
           SOFT LANDING, OUR LATEST SUMMER CHAPTER NOW LIVE
         </p>
         <Header/>
-        <main className="grow">
+        <main className="grow ">
           {children}
         </main>
         <Footer/>
+        <Toaster position="top-center" richColors={true}/>
         </body>
     </html>
   );

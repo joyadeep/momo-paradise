@@ -5,8 +5,12 @@ import { Minus, Plus } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
-const Counter = () => {
-    const [count,setCount] = useState(0)
+interface Props {
+    quantity: number;
+    productId: string;
+}
+const Counter = ({quantity,productId}:Props) => {
+    const [count,setCount] = useState(quantity)
 
     const handlePlus = () => {
         setCount(count + 1)
