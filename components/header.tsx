@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react"
+import { Menu, ShoppingBag } from "lucide-react"
 import { Button } from "./ui/button"
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet"
 import Image from "next/image"
@@ -74,9 +74,9 @@ const Header = () => {
             </SheetContent>
         </Sheet>
         <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain" /></Link>
-        <div className="flex gap-3 md:gap-7 2xl:gap-14 text-xs text-green-800">
+        <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-xs text-green-800">
             <div>SEARCH (0)</div>
-            <Link href="/cart">CART (0)</Link>
+            <Link href="/cart"><ShoppingBag size={20}/></Link>
         </div>
     </header>
   )
