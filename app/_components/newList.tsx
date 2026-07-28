@@ -12,10 +12,10 @@ const NewList = async() => {
   return (
     <div className='py-5'>
         <div className='flex justify-between items-center text-green-800'>
-            <p className='uppercase px-32 pb-5 '>New in</p>
+            <p className='uppercase px-2 md:px-32 pb-5 '>New in</p>
             <Button variant="link" className='text-green-800'>view all <MoveRight/></Button>
         </div>
-        <div className='flex items-center gap-2 px-32'>
+        <div className='flex items-center gap-2 px-2 md:px-32'>
             <Carousel
       opts={{
         align: "start",

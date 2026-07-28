@@ -1,25 +1,29 @@
+"use client"
 import Image from 'next/image'
 import Sizes from './sizes'
 import { Button } from '@/components/ui/button'
 import { Shirt, Sprout } from 'lucide-react'
 import Questions from './questions'
 import { ProductDetail } from '@/lib/graphql/types/productDetailType'
+import { AddToCartButton } from './addToCartButton'
+import { useState } from 'react'
 
 type Props = {
   data: ProductDetail | null
 }
 
 const ProductDetails = ({data}: Props) => {
+  const [selectedVariant, setSelectedVariant] = useState(data?.variants[0] ?? null)
   return (
     <section className='w-2/5 font-lora '>
         <h1 className=' uppercase text-3xl'>{data?.title}</h1>
-        <h4 className='text-lg'>{data?.price?.amount} {data?.price?.currencyCode}</h4>
+        <h4 className='text-lg font-bold'>{data?.price?.amount} {data?.price?.currencyCode}</h4>
         <div className='flex gap-3 items-center'>
             <Image src="/images/logo.webp" alt="logo" width={48} height={48} className='size-14 rounded-full overflow-hidden object-contain' />
             <p className='uppercase font-medium'>sunday stripe</p>
         </div>
-         <Sizes/>
-         <Button className='bg-rose-600 hover:bg-rose-700 px-20 '>add to cart</Button>
+         <Sizes sizes={data?.variants ?? []} selectedVariant={selectedVariant} onChange={setSelectedVariant}/>
+          <AddToCartButton variantId={selectedVariant?.id ?? ""}  />
          <p className='uppercase px-5 text-center w-fit font-medium pt-3 pb-6'>
           pay in 4 x $49.75 usd <br /> with klarna or afterpay
          </p>

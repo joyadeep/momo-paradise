@@ -43,12 +43,12 @@ const links = [
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center px-10 py-3">
-        <Sheet>
+    <header className="w-full max-w-7xl mx-auto flex justify-between items-center px-2 md:px-10 py-3">
+        <Sheet >
             <SheetTrigger asChild>
-                <Button variant="ghost" className="text-green-800 hover:text-green-700"> <Menu className="size-5"/> menu </Button>
+                <Button variant="ghost" className="text-green-800 hover:text-green-700 w-fit px-0"> <Menu className="size-5"/> <span className="hidden md:block">menu</span> </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="pt-24 bg-orange-50 text-red-950" >
+            <SheetContent side="left" className=" pt-5 2xl:pt-24 bg-orange-50 text-red-950" >
                  <Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain mx-auto" />
                  <p className="text-center font-cormorant-garamond">soft things, slow days <br /> made with love ♡</p>
                  <div className="border border-t border-red-950 w-3/4 mx-auto mt-7 mb-3"/>
@@ -56,7 +56,7 @@ const Header = () => {
                     {links.map((link)=>(
                         <SheetClose asChild key={link.name}>
                             <Link href={link.link} >
-                            <div className="px-20 flex justify-between">
+                            <div className="px-10 2xl:px-20 flex justify-between">
                                 <span>{link.name}</span>
                                 <span>{link.icon}</span>
                             </div>
@@ -74,7 +74,7 @@ const Header = () => {
             </SheetContent>
         </Sheet>
         <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain" /></Link>
-        <div className="flex gap-14 text-xs text-green-800">
+        <div className="flex gap-3 md:gap-7 2xl:gap-14 text-xs text-green-800">
             <div>SEARCH (0)</div>
             <Link href="/cart">CART (0)</Link>
         </div>
