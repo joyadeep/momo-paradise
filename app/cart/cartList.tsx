@@ -8,10 +8,10 @@ import { toast } from 'sonner'
 import { removeItem, updateQuantity } from '@/lib/graphql/cart/actions'
 
 interface Props {
-    products: Cart | null
+    products: Cart | null;
+    setCart: React.Dispatch<React.SetStateAction<Cart | null>>
 }
-const CartList = ({products}:Props) => {
-    const [cart,setCart] = useState<Cart|null>(products);
+const CartList = ({products,setCart}:Props) => {
     const [isPending, startTransition] = useTransition();
 
   const handleQuantityChange = (lineId: string, newQuantity: number) => {
@@ -50,7 +50,7 @@ const CartList = ({products}:Props) => {
                 </thead>
                 <tbody className='font-lora'>
                     {
-                        cart?.lines?.map((product)=>(
+                        products?.lines?.map((product)=>(
                             <tr key={product.id}>
                         <td className='flex items-center py-3 gap-3'>
                             <Image src={product.merchandise.image?.url ?? ""} alt={product.merchandise.image?.altText ?? product.merchandise.image?.url ?? ""} width={100} height={100} className='w-28 object-contain' />
