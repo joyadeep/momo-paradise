@@ -1,13 +1,33 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState, useTransition } from 'react'
 import Counter from './counter'
 import CartHelp from './cartHelp'
-import { CartLine } from '@/lib/graphql/cart/types'
+import { Cart } from '@/lib/graphql/cart/types'
+import { toast } from 'sonner'
+import { removeItem, updateQuantity } from '@/lib/graphql/cart/actions'
 
 interface Props {
-    products: CartLine[] | undefined;
+    products: Cart | null
 }
 const CartList = ({products}:Props) => {
+    const [cart,setCart] = useState<Cart|null>(products);
+    const [isPending, startTransition] = useTransition();
+
+  const handleQuantityChange = (lineId: string, newQuantity: number) => {
+    startTransition(async () => {
+      const updatedCart = await updateQuantity(lineId, newQuantity);
+      setCart(updatedCart);
+    });
+  };
+
+  const handleRemove = (lineId: string, productTitle: string) => {
+    startTransition(async () => {
+      const updatedCart = await removeItem(lineId);
+      setCart(updatedCart);
+      toast.success("Removed from cart", { description: productTitle });
+    });
+  };
   return (
     <div className='w-3/4'>
         <p className='text-4xl uppercase font-lora font-medium text-red-950'>your cart (2)</p>
@@ -30,7 +50,7 @@ const CartList = ({products}:Props) => {
                 </thead>
                 <tbody className='font-lora'>
                     {
-                        products?.map((product)=>(
+                        cart?.lines?.map((product)=>(
                             <tr key={product.id}>
                         <td className='flex items-center py-3 gap-3'>
                             <Image src={product.merchandise.image?.url ?? ""} alt={product.merchandise.image?.altText ?? product.merchandise.image?.url ?? ""} width={100} height={100} className='w-28 object-contain' />
@@ -44,8 +64,13 @@ const CartList = ({products}:Props) => {
                             </div>
                         </td>
                         <td>{product.merchandise.price.amount} {product.merchandise.price.currencyCode}</td>
-                        <td><Counter quantity = {product.quantity} productId={product.merchandise.id} /></td>
-                        <td>$199.00</td>
+                        <td><Counter
+                quantity={product.quantity}
+                disabled={isPending}
+                onChange={(newQty) => handleQuantityChange(product.id, newQty)}
+                onRemove={() => handleRemove(product.id, product.merchandise.product.title)}
+              /></td>
+                        <td>{(Number(product.merchandise.price.amount) * product.quantity).toFixed(1)} {product.merchandise.price.currencyCode}</td>
                     </tr>
                         ))
                     }
