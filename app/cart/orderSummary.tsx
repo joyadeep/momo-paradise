@@ -48,7 +48,7 @@ const OrderSummary = ({cost,checkoutUrl}:Props) => {
 
 <div className="flex flex-col gap-1 mt-5">
     <Link href={checkoutUrl ? checkoutUrl : "#"}><Button className="w-full font-normal text-sm bg-red-950  text-white hover:bg-red-950/90 hover:text-white">checkout</Button></Link>
-    <Button className=" font-normal text-sm bg-red-200 text-red-950 hover:bg-red-200/95">continue shopping</Button>
+    <Link href="/"><Button className=" font-normal text-sm bg-red-200 text-red-950 hover:bg-red-200/95 w-full">continue shopping</Button></Link>
 </div>
 
 </div>
