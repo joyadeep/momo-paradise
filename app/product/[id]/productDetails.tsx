@@ -15,8 +15,8 @@ type Props = {
 const ProductDetails = ({data}: Props) => {
   const [selectedVariant, setSelectedVariant] = useState(data?.variants[0] ?? null)
   return (
-    <section className='w-2/5 font-lora '>
-        <h1 className=' uppercase text-3xl'>{data?.title}</h1>
+    <section className='w-full lg:w-2/5 font-lora '>
+        <h1 className=' uppercase text-lg lg:text-3xl'>{data?.title}</h1>
         <h4 className='text-lg font-bold'>{data?.price?.amount} {data?.price?.currencyCode}</h4>
         <div className='flex gap-3 items-center'>
             <Image src="/images/logo.webp" alt="logo" width={48} height={48} className='size-14 rounded-full overflow-hidden object-contain' />
