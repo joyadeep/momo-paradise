@@ -23,7 +23,7 @@ export function AddToCartButton({ variantId }: { variantId: string }) {
 
   return (
     <Button
-    className='bg-rose-600 hover:bg-rose-700 px-20 '
+    className='w-full lg:w-fit bg-rose-600 hover:bg-rose-700 px-20 '
       disabled={isPending}
       onClick={handleClick}
     >

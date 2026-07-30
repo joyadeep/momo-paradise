@@ -66,7 +66,7 @@ export default function RootLayout({
           SOFT LANDING, OUR LATEST SUMMER CHAPTER NOW LIVE
         </p>
         <Header/>
-        <main className="grow ">
+        <main className="grow max-w-400 w-full mx-auto ">
           {children}
         </main>
         <Footer/>

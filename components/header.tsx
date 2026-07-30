@@ -43,7 +43,7 @@ const links = [
 
 const Header = () => {
   return (
-    <header className="w-full max-w-7xl mx-auto flex justify-between items-center px-2 md:px-10 py-3">
+    <header className="w-full max-w-400 mx-auto flex justify-between items-center px-2 md:px-10 py-3">
         <Sheet >
             <SheetTrigger asChild>
                 <Button variant="ghost" className="text-green-800 hover:text-green-700 w-fit px-0"> <Menu className="size-5"/> <span className="hidden md:block">menu</span> </Button>
