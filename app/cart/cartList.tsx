@@ -1,11 +1,11 @@
 'use client'
 import Image from 'next/image'
-import React, { useState, useTransition } from 'react'
+import React, { useTransition } from 'react'
 import Counter from './counter'
-import CartHelp from './cartHelp'
 import { Cart } from '@/lib/graphql/cart/types'
 import { toast } from 'sonner'
 import { removeItem, updateQuantity } from '@/lib/graphql/cart/actions'
+import { Card, CardContent } from '@/components/ui/card'
 
 interface Props {
     products: Cart | null;
@@ -29,10 +29,42 @@ const CartList = ({products,setCart}:Props) => {
     });
   };
   return (
-    <div className='w-3/4'>
+    <div className=' w-full'>
         <p className='text-4xl uppercase font-lora font-medium text-red-950'>your cart (2)</p>
-        <p className='font-dancing-script text-pink-600 text-2xl'>thank you for being here</p>
-        <section>
+        <p className='font-dancing-script text-pink-600 text-2xl pb-2'>thank you for being here</p>
+        {/* mobile */}
+        <section className='flex flex-col gap-3  lg:hidden'>
+            {
+                products?.lines?.map((product)=>(
+                    <Card key={product.id} className='p-0 w-full rounded-xl'>
+                        <CardContent className='p-2 flex gap-2'>
+                             <Image src={product.merchandise.image?.url ?? ""} alt={product.merchandise.image?.altText ?? product.merchandise.image?.url ?? ""} width={100} height={100} className='w-28 object-contain rounded-md' />
+                             <div className='flex flex-col gap-2'>
+                                <p className='text-sm line-clamp-2 text-ellipsis'>{product.merchandise.product.title}</p>
+                                <div className='flex justify-between items-center'>
+                                    <p className='font-bold' >{product.merchandise.title}</p>
+                                <div className='flex items-center gap-2'>
+                                    <Image src="/images/logo.webp" alt="logo" width={48} height={48} className="size-5 rounded-full overflow-hidden object-contain bg-red-400" />
+                                    <p>Cream</p>
+                                </div>
+                                </div>
+                               <div className='flex justify-between'>
+                                <p className='font-bold mt-1'>{(Number(product.merchandise.price.amount) * product.quantity).toFixed(1)} {product.merchandise.price.currencyCode}</p>
+                                 <Counter
+                                    quantity={product.quantity}
+                                    disabled={isPending}
+                                    onChange={(newQty) => handleQuantityChange(product.id, newQty)}
+                                    onRemove={() => handleRemove(product.id, product.merchandise.product.title)}
+                                />
+                               </div>
+                             </div>
+                        </CardContent>
+                    </Card>
+                ))
+            }
+        </section>
+        {/* desktop */}
+        <section className='hidden lg:block'>
             <table className="w-full table-fixed border-collapse ">
                 <colgroup>
                     <col className='w-[48%]'/>
@@ -77,7 +109,6 @@ const CartList = ({products,setCart}:Props) => {
                 </tbody>
             </table>
         </section>
-        <CartHelp/>
     </div>
   )
 }

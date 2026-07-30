@@ -1,7 +1,6 @@
 "use client"
 import Image from 'next/image'
 import Sizes from './sizes'
-import { Button } from '@/components/ui/button'
 import { Shirt, Sprout } from 'lucide-react'
 import Questions from './questions'
 import { ProductDetail } from '@/lib/graphql/types/productDetailType'

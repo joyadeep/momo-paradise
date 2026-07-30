@@ -20,14 +20,14 @@ const Counter = ({quantity,onRemove,onChange,disabled}:Props) => {
     }
 
   return (
-    <div className={cn("mt-5 w-fit", disabled && "pointer-events-none")}>
-        <div className="flex items-center border border-gray-700 border-collapse">
-        <Button variant="ghost" size="sm" className="border-r-gray-700" onClick={handleMinus}> <Minus/> </Button>
-        <p className="min-w-10 text-center">{quantity}</p>
-        <Button variant="ghost" size="sm" className="border-l-gray-700" onClick={handlePlus}> <Plus/></Button>
+    <div className={cn("lg:mt-7 w-fit", disabled && "pointer-events-none")}>
+        <div className="w-fit h-7 lg:h-auto flex items-center border border-gray-700 border-collapse">
+        <Button variant="ghost" className="h-7 px-2 border-r-gray-700" onClick={handleMinus}> <Minus/> </Button>
+        <p className="min-w-7 lg:min-w-10 text-center">{quantity}</p>
+        <Button variant="ghost" className="h-7 px-2 border-l-gray-700" onClick={handlePlus}> <Plus/></Button>
     </div>
     <p className="text-center">
-        <Button variant="link" onClick={onRemove}>remove</Button>
+        <Button variant="link" onClick={onRemove} className="p-0">remove</Button>
     </p>
     </div>
   )
