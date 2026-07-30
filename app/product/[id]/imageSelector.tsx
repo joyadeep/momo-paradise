@@ -20,7 +20,7 @@ const ImageSelector = ({images}:IProps) => {
         ))}
         </div>
         <div className="flex-1 border border-gray-400 h-150 aspect-3/4">
-            <Image src={images[active].url} alt={images[active]?.altText ?? images[active].url} width={100} height={100} className="w-full h-full object-contain" />
+            <Image src={images[active].url} alt={images[active]?.altText ?? images[active].url} width={700} height={700} className="w-full h-full object-contain" />
         </div>
         </div>
     </div>
