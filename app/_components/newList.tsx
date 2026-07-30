@@ -22,7 +22,7 @@ const NewList = async() => {
       }}
       className="w-full"
     >
-      <CarouselPrevious/>
+      <CarouselPrevious className='hidden lg:block'/>
       <CarouselContent>
          {products?.map((product:any)=>(
            <CarouselItem className="basis-1/2 lg:basis-1/5 min-w-0 cursor-pointer"  key={product?.title}>
@@ -47,7 +47,7 @@ const NewList = async() => {
             </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselNext/>
+      <CarouselNext className='hidden lg:block'/>
     </Carousel>
         </div>
 
