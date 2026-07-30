@@ -4,7 +4,7 @@ import Image from "next/image"
 
 const HeroSection = () => {
   return (
-    <section className="px-2 flex flex-col md:flex-row justify-between items-center lg:h-screen w-full bg-orange-50 border-b border-gray-300">
+    <section className="px-2 flex flex-col md:flex-row justify-between items-center lg:h-screen w-full bg-orange-50">
         <Image src="/images/model.png" loading="eager" alt="model" width={300} height={500} className="w-full h-40 lg:w-2/5 lg:h-screen object-cover" />
         <div className="w-full lg:w-fit">
             <p className="text-green-800 uppercase pt-3">chapter 01</p>
