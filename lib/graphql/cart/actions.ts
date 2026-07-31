@@ -3,6 +3,7 @@
 import { cookies } from "next/headers";
 import { createCart, addToCart, removeCartLine, updateCartLine } from "./mutations";
 import { getCart } from "./queries";
+import { revalidatePath } from "next/cache";
 
 const CART_COOKIE = "cartId";
 
@@ -15,6 +16,7 @@ export async function addItemToCart(variantId: string, quantity = 1) {
     const existing = await getCart(existingCartId);
     if (existing) {
       const cart = await addToCart(existingCartId, variantId, quantity);
+      revalidatePath("/")
       return cart;
     }
   }
@@ -26,7 +28,7 @@ export async function addItemToCart(variantId: string, quantity = 1) {
     sameSite: "lax",
     maxAge: 60 * 60 * 24 * 30, // 30 days
   });
-
+  revalidatePath("/")
   return cart;
 }
 
@@ -54,5 +56,7 @@ export async function removeItem(lineId: string) {
   const cartId = cookieStore.get(CART_COOKIE)?.value;
   if (!cartId) throw new Error("No active cart");
 
-  return removeCartLine(cartId, lineId);
+  const result =removeCartLine(cartId, lineId);
+  revalidatePath("/");
+  return result;
 }
