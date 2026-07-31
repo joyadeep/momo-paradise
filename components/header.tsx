@@ -7,6 +7,9 @@ import InstagramIcon from "./icons/instagramIcon"
 import TiktokIcon from "./icons/tiktokIcon"
 import PinterestIcon from "./icons/pinterestIcon"
 import MailIcon from "./icons/mailIcon"
+import { Badge } from "./ui/badge"
+import { getCurrentCart } from "@/lib/graphql/cart/actions"
+import { cn } from "@/lib/utils"
 
 const links = [
     {
@@ -41,7 +44,8 @@ const links = [
     }
 ]
 
-const Header = () => {
+const Header = async() => {
+    const cart = await getCurrentCart();
   return (
     <header className="w-full max-w-400 mx-auto flex justify-between items-center px-2 md:px-10 py-3">
         <Sheet >
@@ -76,7 +80,7 @@ const Header = () => {
         <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain" /></Link>
         <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-xs text-green-800">
             <div>SEARCH (0)</div>
-            <Link href="/cart"><ShoppingBag size={20}/></Link>
+            <Link href="/cart" className="relative"><ShoppingBag size={20}/><Badge className={cn("absolute -top-2 -right-3 p-2 size-5 bg-black text-white rounded-full", !cart?.totalQuantity && "hidden")}>{cart?.totalQuantity}</Badge></Link>
         </div>
     </header>
   )

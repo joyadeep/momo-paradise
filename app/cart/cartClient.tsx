@@ -14,7 +14,6 @@ export function CartClient({ initialCart }: { initialCart: Cart | null }) {
   }
 
   return (
-    // <main className="px-2 2xl:px-28 flex flex-col gap-5 lg:flex-row lg:gap-10 pb-3">
     <main className="px-2 2xl:px-28 flex flex-col gap-5 lg:grid lg:grid-cols-[3fr_1fr] lg:gap-10 pb-3">
       <CartList products={cart} setCart={setCart} />
       <OrderSummary cost={cart.cost} checkoutUrl={cart.checkoutUrl} />

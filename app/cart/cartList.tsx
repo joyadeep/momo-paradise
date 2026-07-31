@@ -30,7 +30,7 @@ const CartList = ({products,setCart}:Props) => {
   };
   return (
     <div className=' w-full'>
-        <p className='text-4xl uppercase font-lora font-medium text-red-950'>your cart (2)</p>
+        <p className='text-4xl uppercase font-lora font-medium text-red-950'>your cart ({products?.totalQuantity})</p>
         <p className='font-dancing-script text-pink-600 text-2xl pb-2'>thank you for being here</p>
         {/* mobile */}
         <section className='flex flex-col gap-3  lg:hidden'>
