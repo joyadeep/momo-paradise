@@ -5,18 +5,21 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);
+  console.log("url", url);
 
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
-
+  console.log("code", code);
+  console.log("state", state);
   if (!code || !state) {
     return NextResponse.json(
       { error: "Missing code or state" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
   const oauth = await getOAuthCookies();
+  console.log("oauth", oauth);
 
   if (!oauth.state || oauth.state !== state) {
     return NextResponse.json(
@@ -81,5 +84,14 @@ export async function GET(request: NextRequest) {
 
   await clearOAuthCookies();
 
-  return NextResponse.redirect(new URL("/account", request.url));
+  // return NextResponse.redirect(new URL("/account", request.url));
+  const host = request.headers.get("x-forwarded-host");
+const proto = request.headers.get("x-forwarded-proto") ?? "https";
+
+if (host) {
+  return NextResponse.redirect(new URL("/account", `${proto}://${host}`));
+}
+
+// Fallback
+return NextResponse.redirect(new URL("/account", process.env.APP_URL!));
 }
