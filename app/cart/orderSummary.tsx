@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { formatMoney } from "@/lib/formatMoney";
+import { CircleQuestionMark } from "lucide-react";
 import Link from "next/link";
 
 interface OrderCost {
@@ -30,13 +32,57 @@ const OrderSummary = ({cost,checkoutUrl}:Props) => {
     </div>
 
     <div className="flex justify-between">
-      <span>SHIPPING</span>
-      <span>Calculated at Checkout</span>
+      <div className="flex gap-1 items-center"><span>SHIPPING</span> 
+      <Dialog>
+        <DialogTrigger><CircleQuestionMark size={14} className="text-gray-400"/></DialogTrigger>
+        <DialogContent>
+          <DialogTitle>Shipping</DialogTitle>
+          <DialogDescription>
+            GENERAL INFORMATION
+
+We ship internationally and orders are processed in 2 to 7 business days before shipment.
+
+a. It is entirely your responsibility to ensure your shipping address and details are correct and entered in English characters only.
+
+b. We are not responsible for any lost, stolen, or damaged shipments, as well as any delays once orders have been shipped.
+
+c. We highly encourage you to opt-in for a shipping protection service for a very small fee inside the cart next to the checkout button to minimize risks.
+
+d. Carriers might refuse to use codes to enter premises or follow other specific instructions, so this is at your own risk.
+
+e. We do not ship to PO Boxes, parcel lockers, private mailboxes, or military bases.
+          </DialogDescription>
+        </DialogContent>
+      </Dialog>
+         </div>
+      <span className="text-gray-400 text-xs">Calculated at Checkout</span>
     </div>
 
     <div className="flex justify-between">
-      <span>TAXES</span>
-      <span>Calculated at Checkout</span>
+      <div className="flex gap-1 items-center"><span>TAXES</span> 
+      <Dialog>
+        <DialogTrigger><CircleQuestionMark size={14} className="text-gray-400"/></DialogTrigger>
+        <DialogContent>
+          <DialogTitle>Taxes</DialogTitle>
+          <DialogDescription>
+            GENERAL INFORMATION
+
+We ship internationally and orders are processed in 2 to 7 business days before shipment.
+
+a. It is entirely your responsibility to ensure your shipping address and details are correct and entered in English characters only.
+
+b. We are not responsible for any lost, stolen, or damaged shipments, as well as any delays once orders have been shipped.
+
+c. We highly encourage you to opt-in for a shipping protection service for a very small fee inside the cart next to the checkout button to minimize risks.
+
+d. Carriers might refuse to use codes to enter premises or follow other specific instructions, so this is at your own risk.
+
+e. We do not ship to PO Boxes, parcel lockers, private mailboxes, or military bases.
+          </DialogDescription>
+        </DialogContent>
+      </Dialog>
+      </div>
+      <span className="text-gray-400 text-xs">Calculated at Checkout</span>
     </div>
   </div>
 
