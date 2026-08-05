@@ -45,10 +45,13 @@ export async function updateQuantity(lineId: string, quantity: number) {
   if (!cartId) throw new Error("No active cart");
 
   if (quantity <= 0) {
+    revalidatePath("/");
     return removeCartLine(cartId, lineId);
   }
 
-  return updateCartLine(cartId, lineId, quantity);
+  const result = updateCartLine(cartId, lineId, quantity);
+  revalidatePath("/");
+  return result;
 }
 
 export async function removeItem(lineId: string) {

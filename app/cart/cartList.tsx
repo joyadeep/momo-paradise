@@ -3,7 +3,6 @@ import Image from 'next/image'
 import React, { useTransition } from 'react'
 import Counter from './counter'
 import { Cart } from '@/lib/graphql/cart/types'
-import { toast } from 'sonner'
 import { removeItem, updateQuantity } from '@/lib/graphql/cart/actions'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -21,11 +20,10 @@ const CartList = ({products,setCart}:Props) => {
     });
   };
 
-  const handleRemove = (lineId: string, productTitle: string) => {
+  const handleRemove = (lineId: string) => {
     startTransition(async () => {
       const updatedCart = await removeItem(lineId);
       setCart(updatedCart);
-      toast.success("Removed from cart", { description: productTitle });
     });
   };
   return (
@@ -54,7 +52,7 @@ const CartList = ({products,setCart}:Props) => {
                                     quantity={product.quantity}
                                     disabled={isPending}
                                     onChange={(newQty) => handleQuantityChange(product.id, newQty)}
-                                    onRemove={() => handleRemove(product.id, product.merchandise.product.title)}
+                                    onRemove={() => handleRemove(product.id)}
                                 />
                                </div>
                              </div>
@@ -100,7 +98,7 @@ const CartList = ({products,setCart}:Props) => {
                 quantity={product.quantity}
                 disabled={isPending}
                 onChange={(newQty) => handleQuantityChange(product.id, newQty)}
-                onRemove={() => handleRemove(product.id, product.merchandise.product.title)}
+                onRemove={() => handleRemove(product.id)}
               /></td>
                         <td>{(Number(product.merchandise.price.amount) * product.quantity).toFixed(1)} {product.merchandise.price.currencyCode}</td>
                     </tr>
