@@ -5,6 +5,7 @@ import { MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getNewProducts } from '@/lib/graphql/queries/productByCollectionQuery';
+import { formatMoney } from '@/lib/formatMoney';
 
 
 const NewList = async() => {
@@ -39,7 +40,7 @@ const NewList = async() => {
                         />
                       </div>
                       <h3 className='text-green-800 mt-2'>{product?.title}</h3>
-                      <h5 className='text-green-800'>{product?.price?.currencyCode} {product?.price?.amount}</h5>
+                      <h5 className='text-green-800'>{formatMoney(product?.price?.amount,product?.price?.currencyCode)}</h5>
                   </CardContent>
               </Card>
             </Link>

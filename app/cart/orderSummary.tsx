@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { formatMoney } from "@/lib/formatMoney";
 import Link from "next/link";
 
 interface OrderCost {
@@ -25,7 +26,7 @@ const OrderSummary = ({cost,checkoutUrl}:Props) => {
   <div className="space-y-6 text-sm tracking-wide">
     <div className="flex justify-between">
       <span>SUBTOTAL</span>
-      <span>{cost?.subtotalAmount.amount} {cost?.subtotalAmount.currencyCode}</span>
+      <span>{formatMoney(cost?.subtotalAmount?.amount,cost?.subtotalAmount.currencyCode)} </span>
     </div>
 
     <div className="flex justify-between">
@@ -43,7 +44,7 @@ const OrderSummary = ({cost,checkoutUrl}:Props) => {
 
   <div className="flex justify-between font-semibold text-[#7b2d2d] tracking-wider">
     <span>TOTAL</span>
-    <span>{cost?.totalAmount.amount} {cost?.totalAmount.currencyCode}</span>
+    <span>{formatMoney(cost?.totalAmount?.amount,cost?.totalAmount.currencyCode)}</span>
   </div>
 
 <div className="flex flex-col gap-1 mt-5">

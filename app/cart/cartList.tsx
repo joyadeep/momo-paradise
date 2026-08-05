@@ -6,6 +6,7 @@ import { Cart } from '@/lib/graphql/cart/types'
 import { removeItem, updateQuantity, updateVariant } from '@/lib/graphql/cart/actions'
 import { Card, CardContent } from '@/components/ui/card'
 import { SizeSelect } from './sizeSelect'
+import { formatMoney } from '@/lib/formatMoney'
 
 interface Props {
     products: Cart | null;
@@ -94,14 +95,14 @@ const CartList = ({products,setCart}:Props) => {
                                
                             </div>
                         </td>
-                        <td>{product.merchandise.price.amount} {product.merchandise.price.currencyCode}</td>
+                        <td>{formatMoney(product.merchandise.price.amount,product.merchandise.price.currencyCode )}</td>
                         <td><Counter
                 quantity={product.quantity}
                 disabled={isPending}
                 onChange={(newQty) => handleQuantityChange(product.id, newQty)}
                 onRemove={() => handleRemove(product.id)}
               /></td>
-                        <td>{(Number(product.merchandise.price.amount) * product.quantity).toFixed(1)} {product.merchandise.price.currencyCode}</td>
+                        <td>{formatMoney(Number(product.merchandise.price.amount)* product.quantity,product.merchandise.price.currencyCode )}</td>
                     </tr>
                         ))
                     }
