@@ -1,4 +1,4 @@
-import { Menu, ShoppingBag } from "lucide-react"
+import { Menu, Search, ShoppingBag } from "lucide-react"
 import { Button } from "./ui/button"
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet"
 import Image from "next/image"
@@ -80,7 +80,7 @@ const Header = async() => {
         </Sheet>
         <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain" /></Link>
         <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-xs text-green-800">
-            <div>SEARCH (0)</div>
+            <div><Search size={22} strokeWidth={1.5}/></div>
             <AuthNav/>
             <Link href="/cart" className="relative"><ShoppingBag size={20}/><Badge className={cn("absolute -top-2 -right-3 p-2 size-5 bg-black text-white rounded-full", !cart?.totalQuantity && "hidden")}>{cart?.totalQuantity}</Badge></Link>
         </div>

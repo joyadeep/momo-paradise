@@ -11,12 +11,15 @@ import { formatMoney } from '@/lib/formatMoney';
 const NewList = async() => {
   const products =  await getNewProducts();
   return (
-    <div className='py-5'>
-        <div className='flex justify-between items-center text-green-800'>
-            <p className='uppercase px-2 md:px-32 pb-5 '>New in</p>
+    <div className='py-5 '>
+        <div className='flex justify-between items-end px-2 md:px-10  text-green-800 mb-5'>
+           <div>
+            <p className='uppercase font-ibm-plex-mono'>latest arrivals</p>
+             <p className='capitalize font-lora text-5xl font-semibold'>New in</p>
+           </div>
             <Button variant="link" className='text-green-800'>view all <MoveRight/></Button>
         </div>
-        <div className='flex items-center gap-2 px-2 md:px-32'>
+        <div className='flex items-center gap-2 px-2 md:px-16'>
             <Carousel
       opts={{
         align: "start",
@@ -26,11 +29,11 @@ const NewList = async() => {
       <CarouselPrevious className='hidden lg:block'/>
       <CarouselContent>
          {products?.map((product:any)=>(
-           <CarouselItem className="basis-1/2 lg:basis-1/5 min-w-0 cursor-pointer"  key={product?.title}>
+           <CarouselItem className="basis-1/2 lg:basis-1/5 min-w-0 cursor-pointer border-none border-0 shadow-none"  key={product?.title}>
               <div className="p-0">
             <Link href={`/product/${product?.handle}`}>
-              <Card className=' bg-transparent border-none shadow-none p-0'>
-                  <CardContent className=' p-0 m-0 border-none shadow-none'>
+              <Card className=' bg-transparent border-0 shadow-none ring-0 p-0'>
+                  <CardContent className=' p-0 m-0 '>
                       <div className="relative aspect-3/4 w-full overflow-hidden">
                         <Image
                           src={product.images[0].url}
@@ -39,8 +42,8 @@ const NewList = async() => {
                           className="object-cover"
                         />
                       </div>
-                      <h3 className='text-green-800 mt-2'>{product?.title}</h3>
-                      <h5 className='text-green-800'>{formatMoney(product?.price?.amount,product?.price?.currencyCode)}</h5>
+                      <h3 className='text-green-800 text-sm mt-4 mb-2'>{product?.title}</h3>
+                      <h5 className='text-green-800 font-semibold text-base'>{formatMoney(product?.price?.amount,product?.price?.currencyCode)}</h5>
                   </CardContent>
               </Card>
             </Link>

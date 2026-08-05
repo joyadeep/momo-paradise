@@ -76,22 +76,22 @@ const Footer = () => {
     <footer className=" py-5 bg-pink-200 text-green-800">
         <div className='w-full max-w-400 px-5 mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr] lg:grid-cols-[1fr_2fr_1fr] items-center gap-5 '>
             <div className="font-dancing-script text-center md:text-left text-3xl -rotate-12 w-fit ">Thank you for <br /> being part of our <br /> little paradise</div>
-            <div className="flex justify-between grow uppercase text-sm gap-5">
+            <div className="flex justify-between grow uppercase text-xs gap-5">
                 <div className="flex flex-1 flex-col gap-1 ">
-                    <h6 className="text-base mb-2">shop</h6>
+                    <h6 className="text-xs mb-2 uppercase">shop</h6>
                     {shoplinks.map((link)=>(
                         <Link href={link.link} key={link.title} className="hover:underline" >{link.title}</Link>
                     ))}
                     
                 </div>
                 <div className="flex flex-1 flex-col gap-1 ">
-                    <h6 className="text-base mb-2">info</h6>
+                    <h6 className="text-xs mb-2 uppercase">info</h6>
                     {infoLinks.map((link)=>(
                         <Link href={link.link} key={link.title} className="hover:underline" >{link.title}</Link>
                     ))}
                 </div>
                 <div className="flex flex-1 flex-col gap-1 ">
-                    <h6 className="text-base mb-2">account</h6>
+                    <h6 className="text-xs mb-2 uppercase">account</h6>
                     {accountLinks.map((link)=>(
                         <Link href={link.link} key={link.title} className="hover:underline" >{link.title}</Link>
                     ))}
