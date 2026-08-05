@@ -1,32 +1,8 @@
-// import { cookies } from "next/headers";
-
-// export async function setAuthCookies(
-//   verifier: string,
-//   state: string,
-// ) {
-//   const cookieStore = await cookies();
-
-//   cookieStore.set("pkce_verifier", verifier, {
-//     httpOnly: true,
-//     secure: true,
-//     sameSite: "lax",
-//     path: "/",
-//   });
-
-//   cookieStore.set("oauth_state", state, {
-//     httpOnly: true,
-//     secure: true,
-//     sameSite: "lax",
-//     path: "/",
-//   });
-// }
-
-
 import { cookies } from "next/headers";
 
 const cookieOptions = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
+  secure: true,
   sameSite: "lax" as const,
   path: "/",
 };
