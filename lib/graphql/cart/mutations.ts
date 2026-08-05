@@ -54,12 +54,32 @@ export async function addToCart(
   return mapCart(data.cartLinesAdd.cart);
 }
 
+// export async function updateCartLine(
+//   cartId: string,
+//   lineId: string,
+//   quantity: number
+// ): Promise<Cart> {
+//   const data = await shopifyFetch<{ cartLinesUpdate: { cart: RawCart } }>({
+//     query: /* GraphQL */ `
+//       ${CART_FRAGMENT}
+//       mutation updateCartLine($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
+//         cartLinesUpdate(cartId: $cartId, lines: $lines) {
+//           cart { ...CartFields }
+//           userErrors { message }
+//         }
+//       }
+//     `,
+//     variables: { cartId, lines: [{ id: lineId, quantity }] },
+//   });
+
+//   return mapCart(data.cartLinesUpdate.cart);
+// }
 export async function updateCartLine(
   cartId: string,
   lineId: string,
-  quantity: number
+  updates: { quantity?: number; merchandiseId?: string }
 ): Promise<Cart> {
-  const data = await shopifyFetch<{ cartLinesUpdate: { cart: RawCart } }>({
+  const data = await shopifyFetch<{ cartLinesUpdate: { cart: RawCart; userErrors: Array<{ message: string }> } }>({
     query: /* GraphQL */ `
       ${CART_FRAGMENT}
       mutation updateCartLine($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
@@ -69,8 +89,15 @@ export async function updateCartLine(
         }
       }
     `,
-    variables: { cartId, lines: [{ id: lineId, quantity }] },
+    variables: {
+      cartId,
+      lines: [{ id: lineId, ...updates }],
+    },
   });
+
+  if (data.cartLinesUpdate.userErrors.length > 0) {
+    throw new Error(data.cartLinesUpdate.userErrors.map((e) => e.message).join(", "));
+  }
 
   return mapCart(data.cartLinesUpdate.cart);
 }

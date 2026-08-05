@@ -3,9 +3,10 @@ import Image from 'next/image'
 import React, { useTransition } from 'react'
 import Counter from './counter'
 import { Cart } from '@/lib/graphql/cart/types'
-import { toast } from 'sonner'
-import { removeItem, updateQuantity } from '@/lib/graphql/cart/actions'
+import { removeItem, updateQuantity, updateVariant } from '@/lib/graphql/cart/actions'
 import { Card, CardContent } from '@/components/ui/card'
+import { SizeSelect } from './sizeSelect'
+import { formatMoney } from '@/lib/formatMoney'
 
 interface Props {
     products: Cart | null;
@@ -20,12 +21,17 @@ const CartList = ({products,setCart}:Props) => {
       setCart(updatedCart);
     });
   };
+    const handleSizeChange = (lineId: string, newMerchandiseId: string) => {
+    startTransition(async () => {
+      const updatedCart = await updateVariant(lineId, newMerchandiseId);
+      setCart(updatedCart);
+    });
+  };
 
-  const handleRemove = (lineId: string, productTitle: string) => {
+  const handleRemove = (lineId: string) => {
     startTransition(async () => {
       const updatedCart = await removeItem(lineId);
       setCart(updatedCart);
-      toast.success("Removed from cart", { description: productTitle });
     });
   };
   return (
@@ -42,11 +48,7 @@ const CartList = ({products,setCart}:Props) => {
                              <div className='flex flex-col gap-2'>
                                 <p className='text-sm line-clamp-2 text-ellipsis'>{product.merchandise.product.title}</p>
                                 <div className='flex justify-between items-center'>
-                                    <p className='font-bold' >{product.merchandise.title}</p>
-                                <div className='flex items-center gap-2'>
-                                    <Image src="/images/logo.webp" alt="logo" width={48} height={48} className="size-5 rounded-full overflow-hidden object-contain bg-red-400" />
-                                    <p>Cream</p>
-                                </div>
+                                    <p className='font-bold' ><SizeSelect line={product} disabled={isPending} onSizeChange={(newId)=> handleSizeChange(product.id,newId) } /></p>
                                 </div>
                                <div className='flex justify-between'>
                                 <p className='font-bold mt-1'>{(Number(product.merchandise.price.amount) * product.quantity).toFixed(1)} {product.merchandise.price.currencyCode}</p>
@@ -54,7 +56,7 @@ const CartList = ({products,setCart}:Props) => {
                                     quantity={product.quantity}
                                     disabled={isPending}
                                     onChange={(newQty) => handleQuantityChange(product.id, newQty)}
-                                    onRemove={() => handleRemove(product.id, product.merchandise.product.title)}
+                                    onRemove={() => handleRemove(product.id)}
                                 />
                                </div>
                              </div>
@@ -88,21 +90,19 @@ const CartList = ({products,setCart}:Props) => {
                             <Image src={product.merchandise.image?.url ?? ""} alt={product.merchandise.image?.altText ?? product.merchandise.image?.url ?? ""} width={100} height={100} className='w-28 object-contain' />
                             <div>
                                 <p>{product.merchandise.product.title}</p>
-                                <p>Size : {product.merchandise.title}</p>
-                                <div className='flex items-center gap-2'>
-                                    <Image src="/images/logo.webp" alt="logo" width={48} height={48} className="size-7 rounded-full overflow-hidden object-contain bg-red-400" />
-                                    <p>Cream</p>
-                                </div>
+                                <div className='mt-3 flex items-center gap-2'>Size : <SizeSelect line={product} disabled={isPending} onSizeChange={(newId)=> handleSizeChange(product.id,newId) } /></div>
+                                
+                               
                             </div>
                         </td>
-                        <td>{product.merchandise.price.amount} {product.merchandise.price.currencyCode}</td>
+                        <td>{formatMoney(product.merchandise.price.amount,product.merchandise.price.currencyCode )}</td>
                         <td><Counter
                 quantity={product.quantity}
                 disabled={isPending}
                 onChange={(newQty) => handleQuantityChange(product.id, newQty)}
-                onRemove={() => handleRemove(product.id, product.merchandise.product.title)}
+                onRemove={() => handleRemove(product.id)}
               /></td>
-                        <td>{(Number(product.merchandise.price.amount) * product.quantity).toFixed(1)} {product.merchandise.price.currencyCode}</td>
+                        <td>{formatMoney(Number(product.merchandise.price.amount)* product.quantity,product.merchandise.price.currencyCode )}</td>
                     </tr>
                         ))
                     }
