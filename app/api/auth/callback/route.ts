@@ -5,12 +5,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);
-  console.log("url", url);
 
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
-  console.log("code", code);
-  console.log("state", state);
   if (!code || !state) {
     return NextResponse.json(
       { error: "Missing code or state" },
@@ -19,7 +16,6 @@ export async function GET(request: NextRequest) {
   }
 
   const oauth = await getOAuthCookies();
-  console.log("oauth", oauth);
 
   if (!oauth.state || oauth.state !== state) {
     return NextResponse.json(
