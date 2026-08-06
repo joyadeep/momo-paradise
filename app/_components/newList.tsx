@@ -17,7 +17,7 @@ const NewList = async() => {
             <p className='uppercase font-ibm-plex-mono'>latest arrivals</p>
              <p className='capitalize font-lora text-4xl font-medium'>New in</p>
            </div>
-            <Button variant="link" className='text-green-800'>view all <MoveRight/></Button>
+            <Link href={'/collection/new'}><Button variant="link" className='text-green-800'>view all <MoveRight/></Button></Link>
         </div>
         <div className='flex items-center gap-2 px-2 md:px-16'>
             <Carousel
