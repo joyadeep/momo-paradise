@@ -76,4 +76,8 @@ async function fetchProductsByCollection(
 
 export function getNewProducts(){
     return fetchProductsByCollection("new");
-} 
+}
+
+export function getProductsByCollection(handle: string) {
+  return fetchProductsByCollection(handle);
+}

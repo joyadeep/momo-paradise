@@ -70,7 +70,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer/>
-        <Toaster position="top-center" richColors={true}/>
+        <Toaster position="top-center" richColors={true} expand={true}/>
         </body>
     </html>
   );

@@ -15,7 +15,7 @@ const NewList = async() => {
         <div className='flex justify-between items-end px-2 md:px-10  text-green-800 mb-5'>
            <div>
             <p className='uppercase font-ibm-plex-mono'>latest arrivals</p>
-             <p className='capitalize font-lora text-5xl font-semibold'>New in</p>
+             <p className='capitalize font-lora text-4xl font-medium'>New in</p>
            </div>
             <Button variant="link" className='text-green-800'>view all <MoveRight/></Button>
         </div>

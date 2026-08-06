@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { MoveRight } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 const HeroSection = () => {
   return (
@@ -11,7 +12,9 @@ const HeroSection = () => {
             <p className="font-cormorant-garamond text-7xl lg:text-[120px] text-pink-400 tracking-tighter lg:leading-36 ">Soft</p>
             <p className="text-7xl lg:text-[120px] leading-6 text-green-900 font-cormorant-garamond tracking-tighter">Paradise</p>
             <p className="mt-10 text-base text-green-800 font-lora">Romantic silhouettes designed for <br/> slow days, soft light, and <br/> dreamy summer moments.</p>
+            <Link href="/collection">
             <Button variant="link" className="p-0 text-green-800 mt-3 lg:mt-10">view collection <MoveRight/> </Button>
+            </Link>
         </div>
         <Image src="/images/hero2.png" alt="model" width={150} height={500} className="w-auto h-full object-cover hidden lg:block" />
     </section>
