@@ -23,7 +23,7 @@ const ProductDetails = ({data}: Props) => {
             <p className='uppercase font-medium'>sunday stripe</p>
         </div>
          <Sizes sizes={data?.variants ?? []} selectedVariant={selectedVariant} onChange={setSelectedVariant}/>
-          <AddToCartButton variantId={selectedVariant?.id ?? ""} product={data}  />
+          <AddToCartButton variantId={selectedVariant?.id ?? ""} product={data} size={selectedVariant?.title ?? ""}  />
          <p className='uppercase px-5 text-center w-fit font-medium pt-3 pb-6'>
           pay in 4 x $49.75 usd <br /> with klarna or afterpay
          </p>
