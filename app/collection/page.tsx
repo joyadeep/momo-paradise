@@ -7,7 +7,7 @@ import Link from "next/link";
 const page = async() => {
   const products = await getAllProducts();
   return (
-    <div className='grid grid-cols-4 gap-5'>
+    <div className='grid grid-cols-2 lg:grid-cols-4 gap-5'>
         {
             products?.map((product)=>(
                 <Link href={`/product/${product?.handle}`} key={product?.id}>
