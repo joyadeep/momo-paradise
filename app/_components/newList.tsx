@@ -29,7 +29,7 @@ const NewList = async() => {
       <CarouselPrevious className='hidden lg:block'/>
       <CarouselContent>
          {products?.map((product:any)=>(
-           <CarouselItem className="basis-1/2 lg:basis-1/5 min-w-0 cursor-pointer border-none border-0 shadow-none"  key={product?.title}>
+           <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/5 min-w-0 cursor-pointer border-none border-0 shadow-none"  key={product?.title}>
               <div className="p-0">
             <Link href={`/product/${product?.handle}`}>
               <Card className=' bg-transparent border-0 shadow-none ring-0 p-0'>

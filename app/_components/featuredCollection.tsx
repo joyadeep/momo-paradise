@@ -11,7 +11,7 @@ const FeaturedCollection = () => {
             <Button variant="link" className="w-fit p-0 text-green-800 justify-start ">discover more <MoveRight/></Button>
             {/* <Link href={"#"} className="flex gap-2 align-center">expolore the diary <MoveRight/> </Link> */}
         </div>
-        <Image src="/images/featured_collection.png" alt="lookbook" width={500} height={200} className="flex-1 h-72 object-cover hidden lg:block" />
+        <Image src="/images/featured_collection.png" alt="lookbook" width={500} height={200} className="flex-1 h-72 md:w-full object-cover hidden md:block" />
     </div>
   )
 }

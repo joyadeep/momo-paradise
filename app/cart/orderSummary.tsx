@@ -17,7 +17,7 @@ interface Props {
 
 const OrderSummary = ({cost,checkoutUrl}:Props) => {
   return (
-    <div className="bg-[#fffaf6] w-full p-2 lg:p-8 l font-ibm-plex-mono">
+    <div className="bg-[#fffaf6] min-w-72 w-full p-2 xl:p-8 l font-ibm-plex-mono">
   <h3 className="flex items-center gap-3 tracking-wider text-[#7b2d2d] font-semibold">
     ORDER SUMMARY
     <span className="text-pink-300 text-3xl">✿</span>

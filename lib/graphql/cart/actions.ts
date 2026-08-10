@@ -39,20 +39,6 @@ export async function getCurrentCart() {
   return getCart(cartId);
 }
 
-// export async function updateQuantity(lineId: string, quantity: number) {
-//   const cookieStore = await cookies();
-//   const cartId = cookieStore.get(CART_COOKIE)?.value;
-//   if (!cartId) throw new Error("No active cart");
-
-//   if (quantity <= 0) {
-//     revalidatePath("/");
-//     return removeCartLine(cartId, lineId);
-//   }
-
-//   const result = updateCartLine(cartId, lineId, quantity);
-//   revalidatePath("/");
-//   return result;
-// }
 export async function updateQuantity(lineId: string, quantity: number) {
   const cookieStore = await cookies();
   const cartId = cookieStore.get(CART_COOKIE)?.value;

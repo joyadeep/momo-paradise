@@ -6,7 +6,6 @@ import { useParams } from 'next/navigation'
 const CollectionList =({collection}:{collection:CategorySummary[]}) => {
   const params = useParams();
   const active = params?.handle;
-  console.log("active",active)
   return (
     <div className='text-sm flex gap-3 lg:flex-col lg:gap-1'>
         <Link href={"/collection"} className={cn('capitalize my-1 hover:underline', !active ? "text-black" : "text-gray-500")} >All</Link>

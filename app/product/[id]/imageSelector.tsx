@@ -11,8 +11,8 @@ const ImageSelector = ({images}:IProps) => {
     const [active,setActive] = useState(0)
   return (
     <div className="h-fit pb-5 lg:h-150 w-full lg:w-3/5">
-        <div className="flex flex-col lg:flex-row gap-4 overflow-hidden">
-            <div className="w-full lg:w-1/4 h-20 lg:h-150 overflow-auto flex flex-row lg:flex-col gap-5 order-2 md:order-1 ">
+        <div className="flex flex-col md:flex-row gap-4 overflow-hidden">
+            <div className="w-full md:w-1/5 lg:w-1/4 h-20 md:h-150 overflow-auto flex flex-row md:flex-col gap-5 order-2 md:order-1 ">
         {images.map((image,i) => (
             <div key={i} className={cn("border border-transparent cursor-pointer",active === i ? " border-red-400" : "")} onClick={() => setActive(i)}>
                 <Image src={image.url} alt={image?.altText ?? image.url} width={100} height={100} className="w-full h-20 lg:w-48 lg:h-auto  object-contain" />

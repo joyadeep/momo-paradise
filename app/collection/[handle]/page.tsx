@@ -3,14 +3,13 @@ import { formatMoney } from '@/lib/formatMoney'
 import { getProductsByCollection } from '@/lib/graphql/queries/productByCollectionQuery'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 
 const page = async({params}:{params:Promise<{handle:string}>}) => {
     const {handle} = await params
     const products = await getProductsByCollection(handle)
   return (
-    <div className='grid grid-cols-2 lg:grid-cols-4 gap-5'>
+    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pb-5'>
         {
             products?.map((product)=>(
                 <Link href={`/product/${product?.handle}`} key={product?.id}>
