@@ -7,6 +7,7 @@ import { removeItem, updateQuantity, updateVariant } from '@/lib/graphql/cart/ac
 import { Card, CardContent } from '@/components/ui/card'
 import { SizeSelect } from './sizeSelect'
 import { formatMoney } from '@/lib/formatMoney'
+import { useRouter } from 'next/navigation'
 
 interface Props {
     products: Cart | null;
@@ -14,6 +15,7 @@ interface Props {
 }
 const CartList = ({products,setCart}:Props) => {
     const [isPending, startTransition] = useTransition();
+    const router = useRouter();
 
   const handleQuantityChange = (lineId: string, newQuantity: number) => {
     startTransition(async () => {
@@ -34,6 +36,9 @@ const CartList = ({products,setCart}:Props) => {
       setCart(updatedCart);
     });
   };
+  const handleRoute = (handle:string) =>{
+    router.push(`/product/${handle}`);
+  }
   return (
     <div className=' w-full'>
         <p className='text-4xl uppercase font-lora font-medium text-red-950'>your cart ({products?.totalQuantity})</p>
@@ -42,13 +47,14 @@ const CartList = ({products,setCart}:Props) => {
         <section className='flex flex-col gap-3  lg:hidden'>
             {
                 products?.lines?.map((product)=>(
-                    <Card key={product.id} className='p-0 w-full rounded-xl'>
+                    <Card key={product.id} className='p-0 w-full rounded-xl' onClick={()=>handleRoute(product.merchandise.product.handle)}>
                         <CardContent className='p-2 flex gap-2'>
                              <Image src={product.merchandise.image?.url ?? ""} alt={product.merchandise.image?.altText ?? product.merchandise.image?.url ?? ""} width={100} height={100} className='w-28 object-contain rounded-md' />
                              <div className='flex flex-col gap-2'>
                                 <p className='text-sm line-clamp-2 text-ellipsis'>{product.merchandise.product.title}</p>
                                 <div className='flex justify-between items-center'>
-                                    <p className='font-bold' ><SizeSelect line={product} disabled={isPending} onSizeChange={(newId)=> handleSizeChange(product.id,newId) } /></p>
+                                    <div className='font-bold' ><div onClick={(e)=>{e.stopPropagation()}}>
+                                        <SizeSelect line={product} disabled={isPending} onSizeChange={(newId)=> handleSizeChange(product.id,newId) } /></div></div>
                                 </div>
                                <div className='flex justify-between'>
                                 <p className='font-bold mt-1'>{(Number(product.merchandise.price.amount) * product.quantity).toFixed(1)} {product.merchandise.price.currencyCode}</p>
@@ -85,12 +91,13 @@ const CartList = ({products,setCart}:Props) => {
                 <tbody className='font-lora'>
                     {
                         products?.lines?.map((product)=>(
-                            <tr key={product.id}>
+                            <tr key={product.id} onClick={()=>handleRoute(product.merchandise.product.handle)} className='cursor-pointer'>
                         <td className='flex items-center py-3 gap-3'>
                             <Image src={product.merchandise.image?.url ?? ""} alt={product.merchandise.image?.altText ?? product.merchandise.image?.url ?? ""} width={100} height={100} className='w-28 object-contain' />
                             <div>
                                 <p>{product.merchandise.product.title}</p>
-                                <div className='mt-3 flex items-center gap-2'>Size : <SizeSelect line={product} disabled={isPending} onSizeChange={(newId)=> handleSizeChange(product.id,newId) } /></div>
+                                <div className='mt-3 flex items-center gap-2'>Size : <div onClick={(e)=>{e.stopPropagation()}}>
+                                    <SizeSelect line={product} disabled={isPending} onSizeChange={(newId)=> handleSizeChange(product.id,newId) } /></div></div>
                                 
                                
                             </div>

@@ -1,33 +1,3 @@
-// export const CART_FRAGMENT = /* GraphQL */ `
-//   fragment CartFields on Cart {
-//     id
-//     checkoutUrl
-//     totalQuantity
-//     cost {
-//       totalAmount { amount currencyCode }
-//       subtotalAmount { amount currencyCode }
-//     }
-//     lines(first: 50) {
-//       edges {
-//         node {
-//           id
-//           quantity
-//           merchandise {
-//             ... on ProductVariant {
-//               id
-//               title
-//               product { title handle }
-//               price { amount currencyCode }
-//               image { url altText }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
-
-// lib/shopify/cart/fragments.ts
 export const CART_FRAGMENT = /* GraphQL */ `
   fragment CartFields on Cart {
     id
@@ -55,8 +25,8 @@ export const CART_FRAGMENT = /* GraphQL */ `
               product {
                 title
                 handle
-                options { name values }          # ← what option names exist (e.g. "Size")
-                variants(first: 20) {              # ← all variants to populate the dropdown
+                options { name values }          
+                variants(first: 20) {              
                   edges {
                     node {
                       id

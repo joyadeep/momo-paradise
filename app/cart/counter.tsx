@@ -12,7 +12,7 @@ interface Props {
 }
 const Counter = ({quantity,onRemove,onChange,disabled}:Props) => {
     
-    const handlePlus = () => {
+    const handlePlus = (e:React.MouseEvent) => {
         onChange(quantity + 1)
     }
     const handleMinus = () => {
@@ -20,7 +20,7 @@ const Counter = ({quantity,onRemove,onChange,disabled}:Props) => {
     }
 
   return (
-    <div className={cn("lg:mt-7 w-fit", disabled && "pointer-events-none")}>
+    <div className={cn("lg:mt-7 w-fit", disabled && "pointer-events-none")} onClick={(e)=>e.stopPropagation()} >
         <div className="w-fit h-7 lg:h-auto flex items-center border border-gray-700 border-collapse">
         <Button variant="ghost" className="h-7 px-2 border-r-gray-700" onClick={handleMinus}> <Minus/> </Button>
         <p className="min-w-7 lg:min-w-10 text-center">{quantity}</p>

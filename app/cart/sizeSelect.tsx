@@ -34,6 +34,7 @@ export function SizeSelect({ line, disabled, onSizeChange }: SizeSelectProps) {
       disabled={disabled}
       value={line.merchandise.id}
       onValueChange={(newMerchandiseId) => onSizeChange(newMerchandiseId)}
+
     >
       <SelectTrigger className="w-16">
         <SelectValue placeholder={currentSize ?? "Size"} />
