@@ -7,7 +7,7 @@ import React from 'react'
 const About = () => {
   return (
     <main className='px-2 lg:px-16 font-cormorant-garamond font-medium'>
-    <section className="flex flex-col lg:flex-row">
+    <section className="flex flex-col lg:flex-row gap-3">
         <div className='w-full lg:w-1/3 text-xl font-medium'>
             <h1 className=' text-red-950 text-4xl uppercase font-medium flex  items-center gap-2'>About momo <Heart/> </h1>
             <div className='grow block lg:hidden'>
