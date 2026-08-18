@@ -1,7 +1,7 @@
 import { UserRound } from "lucide-react";
 import Link from "next/link";
 
-export async function AuthNav() {
+export function AuthNav() {
 
   return (
     <div className="flex items-center gap-3 text-sm">

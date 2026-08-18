@@ -9,7 +9,7 @@ const layout = async({
 }>) => {
      const collection = await getAllCategories();
   return (
-     <div className='px-2 lg:px-10 flex flex-col lg:flex-row gap-5'>
+     <div className='px-2 py-5 lg:px-10 flex flex-col lg:flex-row gap-5'>
         <section className=" w-full lg:w-32">
             <CollectionList collection={collection}/>
         </section>

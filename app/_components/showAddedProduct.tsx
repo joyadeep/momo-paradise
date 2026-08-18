@@ -17,7 +17,7 @@ export function ShowAddedProduct({product,open=false,size,setOpen}:IProps) {
   
   return (
     open && (
-      <Card className="fixed top-0 left-1/2 -translate-x-1/2 rounded-lg w-full md:w-full md:max-w-125 p-0 shadow-2xl" >
+      <Card className="fixed z-50 top-0 left-1/2 -translate-x-1/2 rounded-lg w-full md:w-full md:max-w-125 p-0 shadow-2xl" >
       <CardContent className="p-2 m-0" >
         <div className="text-right">
           <Button variant="ghost" size="xs" onClick={setOpen} ><X/></Button>
