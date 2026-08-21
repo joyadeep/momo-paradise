@@ -13,6 +13,7 @@ import {Controller} from "react-hook-form"
 import Image from 'next/image'
 import { formatMoney } from '@/lib/formatMoney'
 import Link from 'next/link'
+import { Skeleton } from './ui/skeleton'
 
 const formSchema = z.object({
   search: z.string(),
@@ -80,7 +81,18 @@ const SearchBox = ({closeSearch}:Props) => {
     </form>
         <X onClick={resetForm}/>
       </div>
-      <section className='w-full lg:w-lg mx-auto h-full max-h-96 overflow-y-auto flex flex-col gap-5 py-3'>
+      {
+        isPending ? (<section className='w-full lg:w-lg mx-auto h-full max-h-96 overflow-y-auto flex flex-col gap-5 py-3'>
+        { [1,2,3].map((_,index) => (
+            <div key={index} className='flex items-center gap-2'>
+           <Skeleton className='size-16' />
+        <div>
+          <Skeleton className='w-96 h-5 mb-1' />
+          <Skeleton className='w-16 h-4' />
+        </div>
+         </div>
+        ))}
+      </section>) : results.length === 0 ? <p className='text-center text-sm mt-3'>{form.getValues("search") ? "No results found" : "Start typing to search"}</p> : <section className='w-full lg:w-lg mx-auto h-full max-h-96 overflow-y-auto flex flex-col gap-5 py-3'>
         {results?.map((result) => (
           <Link href={`/product/${result.handle}`} onClick={closeSearch} key={result.id} className='flex items-center gap-2'>
             <Image src={result.image?.url ?? ""} alt={result.image?.altText ?? result.image?.url ?? ""} width={50} height={50} />
@@ -91,6 +103,9 @@ const SearchBox = ({closeSearch}:Props) => {
           </Link>
         ))}
       </section>
+      }
+      
+      
     </div>
   )
 }
