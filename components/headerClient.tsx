@@ -53,6 +53,7 @@ interface HeaderProps {
 
 const HeaderClient = ({cart}:HeaderProps) => {
     const [isSearchOpen,setIsSearchOpen] = useState(false);
+    const closeSearch = () => setIsSearchOpen(false);
   return (
     <div className="relative z-40">
         <header className="fixed top-0 w-full z-50">
@@ -113,7 +114,7 @@ const HeaderClient = ({cart}:HeaderProps) => {
       {/* search */}
       <div className="fixed left-0 right-0 top-28 z-50 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-6">
-          <SearchBox/>
+          <SearchBox closeSearch={closeSearch}/>
         </div>
       </div>
     </>  
