@@ -62,11 +62,8 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable, cormorantGaramond.variable, lora.variable, dancingScript.variable,robotoMono.variable,ibmPlexMono.variable)}
     >
       <body className="min-h-full flex flex-col">
-        <p className="text-center py-2 text-xs bg-[#f4cecd] text-green-800 tracking-wide font-medium">
-          SOFT LANDING, OUR LATEST SUMMER CHAPTER NOW LIVE
-        </p>
         <Header/>
-        <main className="grow max-w-400 w-full mx-auto ">
+        <main className="grow max-w-400 w-full mx-auto pt-32">
           {children}
         </main>
         <Footer/>
