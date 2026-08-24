@@ -5,9 +5,9 @@ import Link from "next/link"
 
 const HeroSection = () => {
   return (
-    <section className="px-2 flex flex-col gap-3 md:flex-row justify-between items-center md:h-152 overflow-hidden w-full bg-orange-50">
-        <Image src="/images/model.png" loading="eager" alt="model" width={300} height={500} className="w-full h-40 md:h-full md:w-2/5  lg:h-fit object-cover" />
-        <div className="w-full lg:w-fit">
+    <section className="px-2 relative md:flex flex-col gap-3 md:flex-row justify-between items-center md:h-152 overflow-hidden w-full bg-orange-50">
+        <Image src="/images/model.png" loading="eager" alt="model" width={300} height={500} className="w-full h-full md:h-full md:w-2/5 opacity-60 md:opacity-100 lg:h-fit object-cover" />
+        <div className="absolute inset-0 top-5 pl-3 md:static md:translate-y-0 md:pl-0  w-full lg:w-fit">
             <p className="text-green-800 uppercase pt-3">chapter 01</p>
             <p className="font-cormorant-garamond text-7xl lg:text-[120px] text-pink-400 tracking-tighter lg:leading-36 ">Soft</p>
             <p className="text-7xl lg:text-[120px] leading-6 text-green-900 font-cormorant-garamond tracking-tighter">Paradise</p>

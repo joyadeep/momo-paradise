@@ -7,7 +7,7 @@ import TiktokIcon from "./icons/tiktokIcon"
 const shoplinks = [
     {
         title: "new in",
-        link:"#"
+        link:"/collection/new"
     },
     {
         title: "best sellers",
