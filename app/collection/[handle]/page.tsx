@@ -1,9 +1,24 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { formatMoney } from '@/lib/formatMoney'
 import { getProductsByCollection } from '@/lib/graphql/queries/productByCollectionQuery'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+// type Props = {
+//   params: Promise<{handle:string;}>
+// }
+
+// export async function generateMetadata ({params}:Props): Promise<Metadata> {
+//   const {handle} = await params;
+//   const products = await getProductsByCollection(handle)
+//   return {
+//     title:`${handle} Collection`,
+//     alternates:{
+//       canonical:`/collection/${handle}`
+//     }
+  
+// }
 
 const page = async({params}:{params:Promise<{handle:string}>}) => {
     const {handle} = await params;

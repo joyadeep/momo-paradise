@@ -14,6 +14,7 @@ import Image from 'next/image'
 import { formatMoney } from '@/lib/formatMoney'
 import Link from 'next/link'
 import { Skeleton } from './ui/skeleton'
+import { cn } from '@/lib/utils'
 
 const formSchema = z.object({
   search: z.string(),
@@ -66,23 +67,26 @@ const SearchBox = ({closeSearch}:Props) => {
   }
 
   return (
-    <div className='flex flex-col '>
+    <div className='m-0 flex flex-col bg-amber-200 w-full '>
       <div className='flex justify-center
        items-center'>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='bg-blue-200 p-0 w-full'>
           <Controller 
           name='search'
           control={form.control}
           render={({field}) => (
-            <Input placeholder='Search' className='w-full md:w-96' {...field} />
+            <div className='relative'>
+              <Input placeholder='Search' className='w-full md:w-96' {...field} />
+              <X size={16} onClick={resetForm} className={cn("cursor-pointer absolute right-3 top-1/2 -translate-y-1/2", form.getValues("search") ? "visible" : "invisible")}/>
+            </div>
           )}
           />
       
     </form>
-        <X onClick={resetForm}/>
+        
       </div>
       {
-        isPending ? (<section className='w-full lg:w-lg mx-auto h-full max-h-96 overflow-y-auto flex flex-col gap-5 py-3'>
+        isPending ? (<section className='bg-red-200 w-full lg:w-lg  h-full max-h-96 overflow-y-auto flex flex-col gap-5 py-3'>
         { [1,2,3].map((_,index) => (
             <div key={index} className='flex items-center gap-2'>
            <Skeleton className='size-16' />
@@ -92,7 +96,7 @@ const SearchBox = ({closeSearch}:Props) => {
         </div>
          </div>
         ))}
-      </section>) : results.length === 0 ? <p className='text-center text-sm mt-3'>{form.getValues("search") ? "No results found" : "Start typing to search"}</p> : <section className='w-full lg:w-lg mx-auto h-full max-h-96 overflow-y-auto flex flex-col gap-5 py-3'>
+      </section>) : results.length === 0 ? <p className='text-center text-sm mt-3'>{form.getValues("search") ? "No results found" : "Start typing to search"}</p> : <section className='bg-green-200 w-full lg:w-lg mx-auto h-full max-h-96 overflow-y-auto flex flex-col gap-5 py-3'>
         {results?.map((result) => (
           <Link href={`/product/${result.handle}`} onClick={closeSearch} key={result.id} className='flex items-center gap-2'>
             <Image src={result.image?.url ?? ""} alt={result.image?.altText ?? result.image?.url ?? ""} width={50} height={50} />
