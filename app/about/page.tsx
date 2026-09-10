@@ -1,8 +1,23 @@
 import { Button } from '@/components/ui/button'
 import { Heart,ArrowRight, Coffee } from 'lucide-react'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import React from 'react'
 
+export const metadata:Metadata = {
+    title:"About Us",
+    description:"Learn more about our company, team, and mission.",
+
+    alternates:{
+        canonical:"/about",
+    },
+
+    openGraph:{
+        title:"About Us | Momo Paradise",
+        description:"Learn more about our company, team, and mission.",
+        url:"/about"
+    }
+}
 
 const About = () => {
   return (

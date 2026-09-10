@@ -4,9 +4,10 @@ import Link from "next/link";
 export function AuthNav() {
 
   return (
-    <div className="flex items-center gap-3 text-sm">
+    <div className="flex items-center gap-3 ">
       <Link href="/api/auth/login">
-    <UserRound size={22} strokeWidth={1.5}/>
+    {/* <UserRound size={22} strokeWidth={1.5}/> */}
+    Account
 </Link>
     </div>
   );

@@ -1,6 +1,14 @@
 import { getAllCategories } from '@/lib/graphql/queries/collectionQuery';
 import CollectionList from './collectionList'
+import { Metadata } from 'next';
 
+
+export const metadata : Metadata = {
+  title:"Collection",
+  alternates:{
+    canonical:"/collection"
+  }
+}
 
 const layout = async({
   children,

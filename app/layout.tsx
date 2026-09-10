@@ -45,9 +45,77 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Momo Paradice",
-  description: "",
+  metadataBase: new URL("https://momo-paradice.vercel.app/"), // <- change this
+
+  title: {
+    default:"Momo Paradice",
+    template:"%s | Momo Paradice"
+  },
+
+  description : "Discover fashion for every occasion at Momo Paradise. Browse our boutique selection of modern apparel, trendy tops, stylish dresses, and everyday wear. Shop online for fast doorstep delivery!", 
+
+  keywords:[
+    "Shop clothes online",
+    "Momo Paradise",
+    "Fashion",
+  ],
+  authors:[
+    {
+      name:"Momo Paradise",
+    }
+  ],
+  creator:"Momo Paradise",
+  publisher:"Momo Paradise",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://momoparadise-glit.vercel.app", // <- change this
+    siteName: "Momo Paradise",
+    title: "Momo Paradise",
+    description:
+      "Discover fashion for every occasion at Momo Paradise. Browse our boutique selection of modern apparel, trendy tops, stylish dresses, and everyday wear. Shop online for fast doorstep delivery!",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Momo Paradise",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Momo Paradise",
+    description:
+      "Discover fashion for every occasion at Momo Paradise. Browse our boutique selection of modern apparel, trendy tops, stylish dresses, and everyday wear. Shop online for fast doorstep delivery!",
+    images: ["/og-image.jpg"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
+
+
 
 
 
