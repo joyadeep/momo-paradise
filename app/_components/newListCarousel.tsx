@@ -16,7 +16,7 @@ const PreviousButton = () => {
   const { scrollPrev, canScrollPrev } = useCarousel();
   return (
     <Button variant="ghost" disabled={!canScrollPrev} onClick={scrollPrev}>
-       <ChevronLeft className="size-7" />
+       <ChevronLeft className="size-10" />
     </Button>
    
   );
@@ -26,7 +26,7 @@ const NextButton = () => {
   const { scrollNext, canScrollNext } = useCarousel();
   return (
     <Button variant="ghost" disabled={!canScrollNext} onClick={scrollNext}>
-      <ChevronLeft className="rotate-180 size-7" />
+      <ChevronLeft className="rotate-180 size-10" />
     </Button>
   );
 }
