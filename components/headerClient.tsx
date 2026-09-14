@@ -17,32 +17,32 @@ const links = [
     {
         name:"new chapter",
         link:"/",
-        icon: "⭐"
+        icon: "/images/sidebar/star_icon_transparent2.webp"
     },
     {
         name:"clothing",
         link:"/",
-        icon:"🌸"
+        icon:"/images/sidebar/flower_icon_transparent2.webp"
     },
     {
         name:"lookbooks",
         link:"/",
-        icon:"💗"
+        icon:"/images/sidebar/heart_icon_transparent2.webp"
     },
     {
         name:"about momo",
         link:"/about",
-        icon:"🌸"
+        icon:"/images/sidebar/sunburst_icon_transparent2.webp"
     },
     {
         name:"cafe diary",
         link:"/",
-        icon:"🌸"
+        icon:"/images/sidebar/teacup_icon_transparent2.webp"
     },
     {
         name:"contact",
         link:"/",
-        icon:"🌸"
+        icon:"/images/sidebar/envelope_icon_transparent2.webp"
     }
 ]
 
@@ -62,21 +62,21 @@ const HeaderClient = ({cart}:HeaderProps) => {
           <Image src="/images/header/star.webp" alt="flower" width={35} height={30} />
         </div>
         <div className="bg-orange-50 w-full max-w-400 mx-auto flex justify-between items-center px-2 md:px-10 py-3"> 
-        <Sheet >
+        <div className="flex-1">
+            <Sheet >
             <SheetTrigger asChild>
                 <Button variant="ghost" className="text-green-800 hover:text-green-700 w-fit px-0 font-roboto-mono"> <Menu className="size-5"/> <span className="hidden text-base uppercase md:block">menu</span> </Button>
             </SheetTrigger>
-            <SheetContent side="left" className=" pt-5 2xl:pt-24 bg-orange-50 text-red-950" >
-                 <Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-10 object-contain mx-auto" />
-                 <p className="text-center font-cormorant-garamond">soft things, slow days <br /> made with love ♡</p>
-                 <div className="border border-t border-red-950 w-3/4 mx-auto mt-7 mb-3"/>
-                 <div className="flex flex-col uppercase  gap-5 text-2xl font-cormorant-garamond font-medium">
+            <SheetContent side="left" className=" pt-5 2xl:pt-24 bg-[#F9EFE6] text-red-950 lg:px-14" >
+                 <Image src="/images/sidebar/sidebar_logo.webp" alt="momo paradise logo" width={120} height={80} className="h-20 w-auto object-contain mx-auto" />
+                 <Image src="/images/sidebar/pastel_pink_ribbon_divider.webp" alt="momo paradise logo" width={120} height={80} className="h-10 w-auto object-contain mx-auto" />
+                 <div className="flex flex-col uppercase  gap-5 text-2xl font-cormorant-garamond font-stretch-expanded font-medium mt-5">
                     {links.map((link)=>(
                         <SheetClose asChild key={link.name}>
                             <Link href={link.link} >
-                            <div className="px-10 2xl:px-20 flex justify-between">
+                            <div className="flex gap-10 items-center">
                                 <span>{link.name}</span>
-                                <span>{link.icon}</span>
+                                <span><Image src={link.icon} alt={link.name} width={30} height={30} /></span>
                             </div>
                             
                         </Link>
@@ -91,16 +91,19 @@ const HeaderClient = ({cart}:HeaderProps) => {
                                  </div>
             </SheetContent>
         </Sheet>
-        <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain" /></Link>
-        <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-base font-roboto-mono  uppercase text-green-800">
-           <p onClick={()=> setIsSearchOpen(true)}>search (0)</p>
+        </div>
+        <div className="flex flex-1 justify-center">
+            <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14  object-contain " /></Link>
+        </div>
+        <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-sm font-roboto-mono justify-end  uppercase text-green-800 flex-1 ">
+           <p onClick={()=> setIsSearchOpen(true)} className="cursor-pointer">search (0)</p>
             <AuthNav/>
             <Link href="/cart" className="relative">cart ({cart?.totalQuantity ?? 0})</Link>
         </div>
          </div>
     </header>
     <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
-        <DialogContent className="px-2  max-w-[90vw]  bg-purple-300">
+        <DialogContent className="px-2 w-full min-w-132 ">
             <SearchBox closeSearch={closeSearch}/>
         </DialogContent>
     </Dialog>
