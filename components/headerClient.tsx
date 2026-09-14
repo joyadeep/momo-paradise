@@ -96,14 +96,14 @@ const HeaderClient = ({cart}:HeaderProps) => {
             <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14  object-contain " /></Link>
         </div>
         <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-sm font-roboto-mono justify-end  uppercase text-green-800 flex-1 ">
-           <p onClick={()=> setIsSearchOpen(true)}>search (0)</p>
+           <p onClick={()=> setIsSearchOpen(true)} className="cursor-pointer">search (0)</p>
             <AuthNav/>
             <Link href="/cart" className="relative">cart ({cart?.totalQuantity ?? 0})</Link>
         </div>
          </div>
     </header>
     <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
-        <DialogContent className="px-2  max-w-[90vw]  bg-purple-300">
+        <DialogContent className="px-2 w-full min-w-132 ">
             <SearchBox closeSearch={closeSearch}/>
         </DialogContent>
     </Dialog>
