@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { formatMoney } from "@/lib/formatMoney";
 import { getAllProducts } from "@/lib/graphql/queries/productQueries"
 import Image from "next/image";
 import Link from "next/link";
@@ -21,8 +20,8 @@ const page = async() => {
                           className="object-cover"
                         />
                       </div>
-                      <h3 className='text-green-800 text-sm mt-4 mb-2'>{product?.title}</h3>
-                      <h5 className='text-green-800 font-semibold text-base'>{formatMoney(product?.price?.amount,product?.price?.currencyCode)}</h5>
+                      <h3 className='text-green-800 mt-4 mb-2'>{product?.title}</h3>
+                      <h5 className='text-green-800'>{`${product?.price?.currencyCode} ${product?.price?.amount}`}</h5>
                   </CardContent>
               </Card>
             </Link>

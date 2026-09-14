@@ -12,7 +12,7 @@ const HeroSection = () => {
               <p className="text-green-800 uppercase pt-3 font-roboto-mono">chapter 01</p>
             <Image src="/images/home/star_icon_transparent.webp" alt="ribbon" width={50} height={50} className="mt-2 size-5 object-contain " />
             </div>
-            <p className="font-cormorant-garamond text-7xl lg:text-[120px] text-pink-400 tracking-tighter lg:leading-36 ">Soft</p>
+            <p className="font-cormorant-garamond text-7xl lg:text-[120px] text-[#E3677D] tracking-tighter lg:leading-36 ">Soft</p>
             <p className="text-7xl lg:text-[120px] leading-12 text-green-900 font-cormorant-garamond tracking-tighter">Paradise</p>
             <Image src="/images/home/4_2.webp" alt="ribbon" width={500} height={50} className=" w-full mt-10 md:w-full lg:w-full h-auto  object-contain " />
             <p className=" text-base text-green-800 font-lora text-justify [word-spacing:5px] tracking-wider">Romantic silhouettes designed for <br/> slow days, soft light, and <br/> dreamy summer moments.</p>
