@@ -34,22 +34,23 @@ const NextButton = () => {
 const NewListCarousel = ({items}: Props) => {
     // const {canScrollNext,canScrollPrev,scrollNext,scrollPrev} = useCarousel();
   return (
-    <div className='flex items-center gap-2 px-2 md:px-5'>
+    <div className='flex items-center gap-2 px-2 md:px-5 w-full'>
             <Carousel
       opts={{
         align: "start",
       }}
       className="w-full"
     >
-      <div className=" flex items-center gap-2 ml-2">
+      <div className="w-full flex items-center gap-2 ml-1">
         <PreviousButton/>
-      <CarouselContent className="ml-4 gap-2">
+      <div className=" w-full">
+        <CarouselContent className="ml-4 gap-2 ">
          {items?.map((product:Product)=>(
            <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/5 min-w-0 cursor-pointer border-none border-0 shadow-none"  key={product?.title}>
               <div className="p-0">
             <Link href={`/product/${product?.handle}`}>
               <Card className=' bg-transparent border-0 shadow-none ring-0 p-0'>
-                  <CardContent className=' p-0 m-0 '>
+                  <CardContent className=' p-0 m-0  font-lora tracking-wide'>
                       <div className="relative aspect-3/4 w-full overflow-hidden">
                         <Image
                           src={product.images[0].url}
@@ -58,8 +59,8 @@ const NewListCarousel = ({items}: Props) => {
                           className="object-cover"
                         />
                       </div>
-                      <h3 className='text-green-800 text-sm mt-4 mb-2'>{product?.title}</h3>
-                      <h5 className='text-green-800 font-semibold text-base'>{product?.price?.currencyCode} {product?.price?.amount}</h5>
+                      <h3 className='text-green-800 mt-4 mb-1 capitalize'>{product?.title}</h3>
+                      <h5 className='text-green-800 '>{product?.price?.currencyCode} {product?.price?.amount}</h5>
                   </CardContent>
               </Card>
             </Link>
@@ -67,6 +68,7 @@ const NewListCarousel = ({items}: Props) => {
             </CarouselItem>
         ))}
       </CarouselContent>
+      </div>
       <NextButton/>
       </div>
     </Carousel>
