@@ -62,7 +62,8 @@ const HeaderClient = ({cart}:HeaderProps) => {
           <Image src="/images/header/star.webp" alt="flower" width={35} height={30} />
         </div>
         <div className="bg-orange-50 w-full max-w-400 mx-auto flex justify-between items-center px-2 md:px-10 py-3"> 
-        <Sheet >
+        <div className="flex-1">
+            <Sheet >
             <SheetTrigger asChild>
                 <Button variant="ghost" className="text-green-800 hover:text-green-700 w-fit px-0 font-roboto-mono"> <Menu className="size-5"/> <span className="hidden text-base uppercase md:block">menu</span> </Button>
             </SheetTrigger>
@@ -90,8 +91,11 @@ const HeaderClient = ({cart}:HeaderProps) => {
                                  </div>
             </SheetContent>
         </Sheet>
-        <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14 object-contain" /></Link>
-        <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-sm font-roboto-mono  uppercase text-green-800">
+        </div>
+        <div className="flex flex-1 justify-center">
+            <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14  object-contain " /></Link>
+        </div>
+        <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-sm font-roboto-mono justify-end  uppercase text-green-800 flex-1 ">
            <p onClick={()=> setIsSearchOpen(true)}>search (0)</p>
             <AuthNav/>
             <Link href="/cart" className="relative">cart ({cart?.totalQuantity ?? 0})</Link>
