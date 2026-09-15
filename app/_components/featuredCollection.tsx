@@ -14,7 +14,7 @@ const FeaturedCollection = () => {
             <Button variant="link" className="w-fit p-0 text-green-800 justify-start text-base font-roboto-mono font-normal ">discover more <MoveRight/></Button>
             {/* <Link href={"#"} className="flex gap-2 align-center">expolore the diary <MoveRight/> </Link> */}
         </div>
-        <Image src="/images/home/vintage_lace_dress_polaroid_collage.webp" alt="lookbook" width={500} height={200} className="flex-1 h-80 md:w-full overflow-hidden object-contain hidden md:block" />
+        <Image src="/images/home/vintage_lace_dress_polaroid_collage.webp" alt="lookbook" width={2109} height={746} className="flex-1 h-80 md:w-full overflow-hidden object-contain hidden md:block" />
     </div>
   )
 }
