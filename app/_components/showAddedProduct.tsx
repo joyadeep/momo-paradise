@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ProductDetail } from '@/lib/graphql/types/productDetailType'
 import { Card, CardContent } from "@/components/ui/card";
 import { X } from "lucide-react";
-import { formatMoney } from "@/lib/formatMoney";
 
 interface IProps {
   product: ProductDetail|null,
@@ -24,11 +23,11 @@ export function ShowAddedProduct({product,open=false,size,setOpen}:IProps) {
         </div>
         {/* <p className="text-center text-xl font-b">Added to Cart</p> */}
        <div className="flex gap-2">
-         <Image src={product?.images[0].url ?? ""} alt={product?.images[0].altText ?? product?.images[0].url ?? ""} width={200} height={200} className="w-32 h-auto object-contain" />
+         <Image src={product?.images[0].url ?? ""} alt={product?.images[0].altText ?? product?.images[0].url ?? ""} width={200} height={320} className="w-32 h-auto object-contain" />
           <div className="flex flex-col gap-3 w-full">
             <p>{product?.title}</p>
             <p>Size : {size}</p>
-            <p className="text-lg font-semibold">{formatMoney(product?.price?.amount,product?.price?.currencyCode)}</p>
+            <p className="font-semibold flex-1">{`${product?.price?.currencyCode} ${product?.price?.amount}`}</p>
             <Link href="/cart"><Button className="bg-red-600 hover:bg-red-600 w-full">Go to Cart</Button></Link>
           </div>
         </div>
