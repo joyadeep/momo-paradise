@@ -28,7 +28,7 @@ export function ShowAddedProduct({product,open=false,size,setOpen}:IProps) {
             <p>{product?.title}</p>
             <p>Size : {size}</p>
             <p className="font-semibold flex-1">{`${product?.price?.currencyCode} ${product?.price?.amount}`}</p>
-            <Link href="/cart"><Button className="bg-red-600 hover:bg-red-600 w-full">Go to Cart</Button></Link>
+            <Link href="/cart"><Button className="bg-[#F0CCC6] hover:bg-[#F0CCC6] w-full font-roboto-mono text">Go to Cart</Button></Link>
           </div>
         </div>
       </CardContent>

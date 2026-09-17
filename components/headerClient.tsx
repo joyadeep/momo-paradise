@@ -68,7 +68,7 @@ const HeaderClient = ({cart}:HeaderProps) => {
                 <Button variant="ghost" className="text-green-800 hover:text-green-700 w-fit px-0 font-roboto-mono"> <Menu className="size-5"/> <span className="hidden text-base uppercase md:block">menu</span> </Button>
             </SheetTrigger>
             <SheetContent side="left" className=" pt-5 2xl:pt-24 bg-[#F9EFE6] text-red-950 lg:px-14" >
-                 <Image src="/images/sidebar/sidebar_logo.webp" alt="momo paradise logo" width={120} height={80} className="h-20 w-auto object-contain mx-auto" />
+                 <Image src="/images/sidebar/sidebar_logo.webp" alt="momo paradise logo" width={544} height={306} className="h-20 w-auto object-contain mx-auto" />
                  <Image src="/images/sidebar/pastel_pink_ribbon_divider.webp" alt="momo paradise logo" width={120} height={80} className="h-10 w-auto object-contain mx-auto" />
                  <div className="flex flex-col uppercase  gap-5 text-2xl font-cormorant-garamond font-stretch-expanded font-medium mt-5">
                     {links.map((link)=>(
@@ -76,7 +76,7 @@ const HeaderClient = ({cart}:HeaderProps) => {
                             <Link href={link.link} >
                             <div className="flex gap-10 items-center">
                                 <span>{link.name}</span>
-                                <span><Image src={link.icon} alt={link.name} width={30} height={30} /></span>
+                                <span><Image src={link.icon} alt={link.name} width={200} height={200} className="object-contain size-8" /></span>
                             </div>
                             
                         </Link>
@@ -93,7 +93,7 @@ const HeaderClient = ({cart}:HeaderProps) => {
         </Sheet>
         </div>
         <div className="flex flex-1 justify-center">
-            <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={200} height={100} className="w-48 h-14  object-contain " /></Link>
+            <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={2172} height={724} className="w-48 h-14  object-contain " /></Link>
         </div>
         <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-sm font-roboto-mono justify-end  uppercase text-green-800 flex-1 ">
            <p onClick={()=> setIsSearchOpen(true)} className="cursor-pointer">search (0)</p>

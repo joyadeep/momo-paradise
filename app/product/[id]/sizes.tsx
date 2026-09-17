@@ -1,6 +1,5 @@
 'use client'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
-import React, { useState } from 'react'
 
 interface Size {
   id: string;
@@ -24,7 +23,7 @@ interface Props {
 }
 const Sizes = ({sizes,selectedVariant,onChange}:Props) => {
   return (
-    <div className='py-4'>
+    <div className='py-4 font-roboto-mono'>
         <ToggleGroup
       type="single"
       defaultValue={selectedVariant?.id}
@@ -44,10 +43,11 @@ const Sizes = ({sizes,selectedVariant,onChange}:Props) => {
           className="
             h-12 w-12 rounded-full
             border border-dashed
-            data-[state=on]:bg-rose-100
-            data-[state=on]:border-rose-300
-            data-[state=on]:text-rose-600
+            data-[state=on]:bg-[#F0CCC6]
+            data-[state=on]:border-[#EDD2CD]
+            text-[#776A6B]
             hover:bg-muted
+            text-xs
           "
         >
           {size?.title}

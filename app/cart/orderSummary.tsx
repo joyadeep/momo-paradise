@@ -28,7 +28,8 @@ const OrderSummary = ({cost,checkoutUrl}:Props) => {
   <div className="space-y-6 text-sm tracking-wide">
     <div className="flex justify-between">
       <span>SUBTOTAL</span>
-      <span>{formatMoney(cost?.subtotalAmount?.amount,cost?.subtotalAmount.currencyCode)} </span>
+      {/* <span>{formatMoney(cost?.subtotalAmount?.amount,cost?.subtotalAmount.currencyCode)} </span> */}
+      <span>{cost?.subtotalAmount?.currencyCode} {cost?.subtotalAmount?.amount} </span>
     </div>
 
     <div className="flex justify-between">
@@ -90,7 +91,7 @@ e. We do not ship to PO Boxes, parcel lockers, private mailboxes, or military ba
 
   <div className="flex justify-between font-semibold text-[#7b2d2d] tracking-wider">
     <span>TOTAL</span>
-    <span>{formatMoney(cost?.totalAmount?.amount,cost?.totalAmount.currencyCode)}</span>
+    <span>{cost?.totalAmount?.currencyCode} {cost?.totalAmount?.amount} </span>
   </div>
 
 <div className="flex flex-col gap-1 mt-5">
