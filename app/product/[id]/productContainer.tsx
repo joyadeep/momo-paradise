@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import ProductDetails from './productDetails'
+import AboutFabric from './aboutFabric'
 
 type Props = {
     productDetail: ProductDetail | null
@@ -29,7 +30,7 @@ const ProductContainer = ({productDetail}: Props) => {
         <ProductDetails data={productDetail}/>
       </section>
       <section>
-        
+        <AboutFabric/>
       </section>
     </div>
    </>

@@ -41,7 +41,7 @@ const CartList = ({products,setCart}:Props) => {
   }
   return (
     <div className=' w-full'>
-        <p className='text-4xl uppercase font-lora font-medium text-red-950'>your cart ({products?.totalQuantity})</p>
+        <p className='text-3xl uppercase font-lora font-medium text-[#79323A]'>your cart ({products?.totalQuantity})</p>
         <p className='font-dancing-script text-pink-600 text-2xl pb-2'>thank you for being here</p>
         {/* mobile */}
         <section className='flex flex-col gap-3  lg:hidden'>
@@ -88,7 +88,7 @@ const CartList = ({products,setCart}:Props) => {
                         <td>total</td>
                     </tr>
                 </thead>
-                <tbody className='font-lora'>
+                <tbody className='font-lora text-sm'>
                     {
                         products?.lines?.map((product)=>(
                             <tr key={product.id} onClick={()=>handleRoute(product.merchandise.product.handle)} className='cursor-pointer'>
@@ -102,14 +102,15 @@ const CartList = ({products,setCart}:Props) => {
                                
                             </div>
                         </td>
-                        <td>{formatMoney(product.merchandise.price.amount,product.merchandise.price.currencyCode )}</td>
+                        {/* <td>{formatMoney(product.merchandise.price.amount,product.merchandise.price.currencyCode )}</td> */}
+                        <td className="font-roboto-mono">{product.merchandise.price.currencyCode} {product.merchandise.price.amount}</td>
                         <td><Counter
                 quantity={product.quantity}
                 disabled={isPending}
                 onChange={(newQty) => handleQuantityChange(product.id, newQty)}
                 onRemove={() => handleRemove(product.id)}
               /></td>
-                        <td>{formatMoney(Number(product.merchandise.price.amount)* product.quantity,product.merchandise.price.currencyCode )}</td>
+                        <td className="font-roboto-mono">{product.merchandise.price.currencyCode} {product.merchandise.price.amount}</td>
                     </tr>
                         ))
                     }
