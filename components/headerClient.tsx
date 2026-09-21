@@ -56,21 +56,21 @@ const HeaderClient = ({cart}:HeaderProps) => {
   return (
     <div className="relative z-40 border border-b-gray-200">
         <header className=" z-50">
-             <div className="text-center font-roboto-mono py-2 text-xs tracking-wider text-green-800 font-medium bg-[url('/images/bgtop.webp')] bg-repeat-x flex items-center justify-center gap-5">
+             <div className="text-center font-roboto-mono py-2 text-xs tracking-wider text-green-800 font-medium bg-[url('/images/bgtop.webp')] bg-repeat-x flex items-center justify-center gap-5 px-2">
              <Image src="/images/header/flower.webp" alt="flower" width={20} height={20} />
           <p className="tracking-wider text-sm ">SOFT LANDING, OUR LATEST SUMMER CHAPTER NOW LIVE</p>
           <Image src="/images/header/star.webp" alt="flower" width={35} height={30} />
         </div>
         <div className="bg-orange-50 w-full max-w-400 mx-auto flex justify-between items-center px-2 md:px-10 py-3"> 
-        <div className="flex-1">
+        <div className="md:flex-1">
             <Sheet >
             <SheetTrigger asChild>
                 <Button variant="ghost" className="text-green-800 hover:text-green-700 w-fit px-0 font-roboto-mono"> <Menu className="size-5"/> <span className="hidden text-base uppercase md:block">menu</span> </Button>
             </SheetTrigger>
-            <SheetContent side="left" className=" pt-5 2xl:pt-24 bg-[#F9EFE6] text-red-950 lg:px-14" >
+            <SheetContent side="left" className=" pt-5 2xl:pt-24 bg-[#F9EFE6] text-red-950 pl-10 lg:px-14" >
                  <Image src="/images/sidebar/sidebar_logo.webp" alt="momo paradise logo" width={544} height={306} className="h-20 w-auto object-contain mx-auto" />
                  <Image src="/images/sidebar/pastel_pink_ribbon_divider.webp" alt="momo paradise logo" width={120} height={80} className="h-10 w-auto object-contain mx-auto" />
-                 <div className="flex flex-col uppercase  gap-5 text-2xl font-cormorant-garamond font-stretch-expanded font-medium mt-5">
+                 <div className="flex flex-col  uppercase  gap-5 text-2xl font-cormorant-garamond font-stretch-expanded font-medium mt-5">
                     {links.map((link)=>(
                         <SheetClose asChild key={link.name}>
                             <Link href={link.link} >
@@ -92,10 +92,10 @@ const HeaderClient = ({cart}:HeaderProps) => {
             </SheetContent>
         </Sheet>
         </div>
-        <div className="flex flex-1 justify-center">
-            <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={2172} height={724} className="w-48 h-14  object-contain " /></Link>
+        <div className="flex md:flex-1 justify-center">
+            <Link href="/"><Image src="/images/logo.webp" alt="momo paradise logo" width={2172} height={724} className="w-28 h-auto md:w-48 md:h-14  object-contain " /></Link>
         </div>
-        <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-sm font-roboto-mono justify-end  uppercase text-green-800 flex-1 ">
+        <div className="flex gap-3 items-center md:gap-7 2xl:gap-14 text-xs  md:text-sm font-roboto-mono justify-end  uppercase text-green-800 md:flex-1 ">
            <p onClick={()=> setIsSearchOpen(true)} className="cursor-pointer">search (0)</p>
             <AuthNav/>
             <Link href="/cart" className="relative">cart ({cart?.totalQuantity ?? 0})</Link>
