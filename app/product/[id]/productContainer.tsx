@@ -15,7 +15,7 @@ const ProductContainer = ({productDetail}: Props) => {
   const images = productDetail?.images ?? []
   return (
      <>
-    <div className='grid grid-cols-[2fr_1fr_1fr] px-10 gap-5 pb-16'>
+    <div className='grid grid-cols-[2fr_1fr_1fr] px-10 gap-5 pb-16 pt-7'>
       <section className='grid grid-cols-[1fr_2fr] gap-5'>
        <div className='flex flex-col gap-3'>
         {images?.map((image,i) => (
@@ -24,7 +24,7 @@ const ProductContainer = ({productDetail}: Props) => {
                     </div>
                 ))}
        </div>
-        <Image src={images[active].url} alt={images[active]?.altText ?? images[active].url} width={700} height={700} className="w-full h-fit max-h-150 object-cover sticky top-28" />
+        <Image src={images[active].url} alt={images[active]?.altText ?? images[active].url} width={700} height={700} className="w-full h-fit max-h-150 object-cover sticky top-5" />
       </section>
       <section>
         <ProductDetails data={productDetail}/>

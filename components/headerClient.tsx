@@ -54,8 +54,8 @@ const HeaderClient = ({cart}:HeaderProps) => {
     const [isSearchOpen,setIsSearchOpen] = useState(false);
     const closeSearch = () => setIsSearchOpen(false);
   return (
-    <div className="relative z-40">
-        <header className="fixed top-0 left-0 right-0 z-50">
+    <div className="relative z-40 border border-b-gray-200">
+        <header className=" z-50">
              <div className="text-center font-roboto-mono py-2 text-xs tracking-wider text-green-800 font-medium bg-[url('/images/bgtop.webp')] bg-repeat-x flex items-center justify-center gap-5">
              <Image src="/images/header/flower.webp" alt="flower" width={20} height={20} />
           <p className="tracking-wider text-sm ">SOFT LANDING, OUR LATEST SUMMER CHAPTER NOW LIVE</p>

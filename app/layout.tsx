@@ -131,7 +131,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Header/>
-        <main className="grow max-w-400 w-full mx-auto pt-32">
+        <main className="grow max-w-400 w-full mx-auto">
           {children}
         </main>
         <Footer/>
