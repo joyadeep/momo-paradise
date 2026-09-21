@@ -9,8 +9,8 @@ const page = () => {
     <div className="relative px-2 lg:px-10 pb-5">
         <div className="px-2 lg:px-32 pb-5">
             <section className="flex flex-col gap-3">
-            <div className="flex items-center gap-7 ">
-                <h1 className="font-cormorant-garamond text-6xl uppercase text-[#5B1F22]">size guide</h1>
+            <div className="flex items-center gap-3">
+                <h1 className="font-cormorant-garamond text-5xl md:text-6xl uppercase text-[#5B1F22]">size guide</h1>
                 <Image src="/images/size-guide/flower.webp" alt="flower" width={284} height={317} className="size-14 object-contain" />
             </div>
             <div className="flex  items-center gap-5 font-dancing-script">
@@ -19,8 +19,8 @@ const page = () => {
             </div>
             <p className="font-lora text-sm">All measurements are in inches.</p>
         </section>
-        <Image src="/images/size-guide/image.webp" alt="lookbook" width={650} height={302} className="h-56 w-auto object-contain absolute -top-5 z-50 right-28" />
-        <section className="mt-5 flex gap-16">
+        <Image src="/images/size-guide/image.webp" alt="lookbook" width={650} height={302} className="h-56 w-auto object-contain hidden md:block absolute -top-5 z-50 right-28" />
+        <section className="mt-5 flex flex-col lg:flex-row gap-16">
            <div className="grow flex flex-col gap-7">
              <Table className="w-full text-black border border-collapse border-[#E9CDC8]">
                <TableHeader>
@@ -61,22 +61,22 @@ const page = () => {
                 </TableBody>
             </Table>
             <div className="relative">
-                <div className="bg-[#F5E1DD] w-3/4 h-36 p-7 relative flex flex-col">
+                <div className="bg-[#F5E1DD] w-full lg:w-3/4 h-36 p-3 lg:p-7 relative flex flex-col">
                 <div className="flex gap-3">
                     <Image src="/images/size-guide/flower.webp" alt="flower" width={284} height={317} className="size-7 object-contain" />
                     <p className="uppercase text-base font-roboto-mono text-[#5B1F22]">still unsure ?</p>
                 </div>
-                <p className="font-lora text-sm">we&apos;re happy to help you find your perfect fit.</p>
+                <p className="font-lora text-sm w-3/4 lg:w-full">we&apos;re happy to help you find your perfect fit.</p>
                 <Link href="#" className="flex items-center gap-2 uppercase font-roboto-mono text-xs mt-auto text-[#5B1F22]">contact us <ArrowRight size={16} /></Link>
-                <Image src="/images/size-guide/measuring_tape.webp" alt="flower" width={284} height={317} className="size-36 object-contain absolute top-1/2 -translate-y-1/2 right-5" />
-             <Image src="/images/size-guide/size_note.webp" alt="size note" width={635} height={279} className="h-36 w-auto object-contain absolute -bottom-10  -right-96 " />
+                <Image src="/images/size-guide/measuring_tape.webp" alt="flower" width={284} height={317} className="size-36 object-contain absolute top-1/2 -translate-y-1/2 right-3 lg:right-5" />
+             <Image src="/images/size-guide/size_note.webp" alt="size note" width={635} height={279} className="h-36 w-auto hidden lg:block object-contain absolute -bottom-10  -right-96 " />
             </div>
             </div>
            </div>
 
-            <div className="w-120 min-h-64  pt-10 flex justify-between">
+            <div className="w-full lg:w-120 min-h-64 pt-0 lg:pt-10 flex flex-col lg:flex-row justify-between">
                 <section className="flex flex-col gap-3">
-                    <div className="flex gap-10 items-center">
+                    <div className="flex gap-3 items-center">
                 <p className="uppercase">how to measure</p>
                  <Image src="/images/size-guide/flower.webp" alt="flower" width={284} height={317} className="size-7 object-contain" />
                  </div>
