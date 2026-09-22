@@ -77,7 +77,7 @@ const Footer = () => {
     <footer className=" relative py-5 font-roboto-mono text-green-800 bg-[url('/images/home/7.webp')] bg-repeat-x px:2 lg:px-16">
         <div className='w-full max-w-400 px-5 mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr] lg:grid-cols-[1fr_2fr_1fr] items-center gap-5 '>
             <div className="flex gap-3 h-full">
-                <div className="font-dancing-script text-center md:text-left text-3xl -rotate-6 w-fit ">Thank you for <br /> being part of our <br /> little paradise</div>
+                <div className="font-dancing-script text-center md:text-left text-2xl md:text-3xl -rotate-6 w-fit ">Thank you for <br /> being part of our <br /> little paradise</div>
                 <Image src="/images/home/9_1.webp" alt="flower" width={80} height={80} className=" size-14 self-end object-contain" />
             </div>
             <div className="flex justify-between grow uppercase text-sm gap-5">
@@ -113,7 +113,7 @@ const Footer = () => {
             </div>
         </div>
         <p className="text-center text-sm text-green-900">&copy; MOMO PARADISE 2026. ALL RIGHTS RESERVED.</p>
-        <Image src="/images/home/9_1.webp" alt="flower" width={80} height={80} className="absolute bottom-2 right-5 pb-2 size-14 object-contain" />
+        <Image src="/images/home/9_1.webp" alt="flower" width={80} height={80} className="absolute bottom-10 right-2 lg:bottom-2 lg:right-5 pb-2 size-14 object-contain" />
     </footer>
   )
 }

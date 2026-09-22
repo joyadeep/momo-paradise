@@ -15,13 +15,13 @@ const HeroSection = () => {
             <p className="font-cormorant-garamond text-7xl lg:text-[120px] text-[#E3677D] tracking-tighter lg:leading-36 ">Soft</p>
             <p className="text-7xl lg:text-[120px] leading-12 text-green-900 font-cormorant-garamond tracking-tighter">Paradise</p>
             <Image src="/images/home/4_2.webp" alt="ribbon" width={500} height={50} className=" w-full mt-10 md:w-full lg:w-full h-auto  object-contain " />
-            <p className="text-sm md:text-base text-green-800 font-lora md:text-justify [word-spacing:5px] tracking-wider">Romantic silhouettes designed for <br/> slow days, soft light, and <br/> dreamy summer moments.</p>
+            <p className="text-sm md:text-base text-green-800 font-lora md:text-justify [word-spacing:5px] tracking-wider w-44 md:w-full">Romantic silhouettes designed for <br/> slow days, soft light, and <br/> dreamy summer moments.</p>
             <Link href="/collection">
             <Button variant="link" className="p-0 text-green-800 mt-3 lg:mt-7 text-base font-roboto-mono font-normal">view collection <MoveRight/> </Button>
             </Link>
         </div>
         <Image src="/images/home/polaroid-collage-enhanced.webp" loading="eager" alt="model" width={876} height={1796} className="w-auto hidden md:block  md:w-full lg:w-3/12 h-full object-contain " />
-        <Image src="/images/home/group.webp" loading="eager" alt="model" width={1189} height={1131} className="block md:hidden w-48 h-auto absolute right-0 -bottom-5" />
+        <Image src="/images/home/group.webp" loading="eager" alt="model" width={1189} height={1131} className="block md:hidden w-48 h-auto absolute right-0 bottom-0" />
     </section>
   )
 }
