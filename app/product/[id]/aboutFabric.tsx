@@ -7,7 +7,7 @@ const AboutFabric = () => {
             <h1 className="font-lora uppercase text-lg tracking-wider">about the fabric</h1>
         </div>
         <div className="flex gap-2 mt-5">
-          <Image src="/images/about_fabric/fabric11.webp" alt="fabric 1" width={700} height={700} className="w-1/2 h-auto object-contain" />
+          <Image src="/images/about_fabric/fabric11.webp" alt="fabric 1" width={700} height={700} className="w-3/5 md:w-1/2 h-auto object-contain" />
           <div className="font-lora text-sm">
             <p className="font-roboto-mono uppercase text-base mb-2">bamboo blend</p>
             <p className="leading-5">Soft and breathable with a silky touch. Bamboo keeps you cool in summer and gentle on sensitive skin</p>
