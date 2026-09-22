@@ -67,7 +67,7 @@ const SearchBox = ({closeSearch}:Props) => {
   }
 
   return (
-    <div className='m-0 flex flex-col w-full mt-10 '>
+    <div className='m-0 flex flex-col w-full mt-10 h-96 '>
       <div className='flex justify-center
        items-center'>
         <form onSubmit={form.handleSubmit(onSubmit)} className=' p-0 w-full'>

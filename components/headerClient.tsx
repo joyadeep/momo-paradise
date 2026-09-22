@@ -83,6 +83,7 @@ const HeaderClient = ({cart}:HeaderProps) => {
                         </SheetClose>
                     ))}
                  </div>
+                 <Image src="/images/sidebar/note.webp" alt="sidebar note" width={720} height={556} className=" w-36 md:w-44 h-auto object-contain mx-auto mt-auto" />
                  <div className="flex gap-5 mt-auto mb-10 justify-center">
                                     <Link href={""}><InstagramIcon className="size-8 " strokeWidth={9} /> </Link>
                                     <Link href={""}> <TiktokIcon className="size-8" /> </Link>
@@ -103,12 +104,10 @@ const HeaderClient = ({cart}:HeaderProps) => {
          </div>
     </header>
     <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
-        <DialogContent className="px-2 w-full min-w-132 ">
+        <DialogContent className="px-2 w-full md:min-w-132 ">
             <SearchBox closeSearch={closeSearch}/>
         </DialogContent>
     </Dialog>
-
-
     </div>
   )
 }
