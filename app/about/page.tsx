@@ -38,7 +38,7 @@ const About = () => {
             </p>
             <p className='pt-6'>Thank you for being part of our little paradise ⁠♡ </p>
             <Button className='bg-red-950 hover:bg-red-900 mt-5'>Our story <ArrowRight/> </Button>
-        <section className='md:absolute md:bottom-0 md:left-0 mt-5  font-roboto-mono font-normal lg:text-lg text-center grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-10 md:w-3xl items-center uppercase  '>
+        <section className='lg:absolute lg:bottom-0 lg:left-0 mt-5  font-roboto-mono font-normal lg:text-lg text-center grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-10 md:w-3xl items-center uppercase  '>
         <div>
             <Image src="/images/about/flower.webp" alt="flower" width={262} height={297} className="size-12 mx-auto  object-contain" />
             <p className='text-sm mt-1'>made in small batches</p>
