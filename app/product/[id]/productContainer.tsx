@@ -15,16 +15,16 @@ const ProductContainer = ({productDetail}: Props) => {
   const images = productDetail?.images ?? []
   return (
      <>
-    <div className='grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] px-2 md:px-10 gap-5 pb-16 pt-7'>
-      <section className='grid grid-cols-[1fr_2fr] gap-5'>
+    <div className='grid grid-cols-1  md:grid-cols-[3fr_1fr] lg:grid-cols-[2fr_1fr_1fr] px-2 md:px-10 gap-5 pb-16 pt-7'>
+      <section className='grid grid-cols-[1fr_3fr] sm:grid-cols-[1fr_4fr] md:grid-cols-[1fr_3fr] lg:grid-cols-[1fr_2fr] gap-5'>
        <div className='flex flex-col gap-3'>
         {images?.map((image,i) => (
                     <div key={i} className={cn("border border-transparent cursor-pointer",active === i ? " border-red-400" : "")} onClick={() => setActive(i)}>
-                        <Image src={image.url} alt={image?.altText ?? image.url} width={200} height={300} className="w-full h-20 lg:w-full lg:h-auto  object-contain" />
+                        <Image src={image.url} alt={image?.altText ?? image.url} width={200} height={300} className="w-full h-20 sm:h-44  lg:w-full lg:h-auto object-cover lg:object-contain" />
                     </div>
                 ))}
        </div>
-        <Image src={images[active].url} alt={images[active]?.altText ?? images[active].url} width={700} height={700} className="w-full h-fit max-h-150 object-cover sticky top-5" />
+        <Image src={images[active].url} alt={images[active]?.altText ?? images[active].url} width={700} height={700} className="w-full h-96 sm:h-full sm:max-h-160 md:h-full md:max-h-150 object-cover sticky top-5" />
       </section>
       <section>
         <ProductDetails data={productDetail}/>

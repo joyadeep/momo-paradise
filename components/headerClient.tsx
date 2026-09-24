@@ -62,7 +62,7 @@ const HeaderClient = ({cart}:HeaderProps) => {
           <Image src="/images/header/star.webp" alt="flower" width={35} height={30} />
         </div>
         <div className="bg-orange-50 w-full max-w-400 mx-auto flex justify-between items-center px-2 md:px-10 py-3"> 
-        <div className="md:flex-1">
+        <div className="lg:flex-1">
             <Sheet >
             <SheetTrigger asChild>
                 <Button variant="ghost" className="text-green-800 hover:text-green-700 w-fit px-0 font-roboto-mono"> <Menu className="size-5"/> <span className="hidden text-base uppercase md:block">menu</span> </Button>

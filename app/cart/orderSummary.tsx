@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { formatMoney } from "@/lib/formatMoney";
 import { CircleQuestionMark } from "lucide-react";
 import Link from "next/link";
 
@@ -17,7 +16,7 @@ interface Props {
 
 const OrderSummary = ({cost,checkoutUrl}:Props) => {
   return (
-    <div className="bg-[#fffaf6] min-w-72 w-full p-2 xl:p-8 l font-ibm-plex-mono">
+    <div className="bg-[#fffaf6] min-w-72 w-full p-2 xl:p-8 l font-ibm-plex-mono static sm:sticky sm:top-0 sm:h-fit lg:static">
   <h3 className="flex items-center gap-3 tracking-wider text-[#7b2d2d] font-semibold">
     ORDER SUMMARY
     <span className="text-pink-300 text-3xl">✿</span>
